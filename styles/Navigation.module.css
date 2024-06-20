@@ -1,0 +1,17 @@
+.navmenu {
+  height: 3rem;
+  display: flex;
+  align-items: center;
+}
+
+.navlist {
+  margin: 0;
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.link {
+  text-decoration: none;
+}

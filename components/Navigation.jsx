@@ -1,10 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
+import styles from '../styles/Navigation.module.css';
 
 const Navigation = () => {
 	return (
-		<nav>
-			<ul>
+		<nav className={styles.navmenu}>
+			<ul className={styles.navlist}>
 				<li>
 					<Link href='/'>Home</Link>
 				</li>
