@@ -1,10 +1,9 @@
 import Navigation from './Navigation';
-import styles from '../styles/Header.module.css';
 
 const Header = () => {
 	return (
-		<header className='bg-violet-700'>
-			<Navigation />
+		<header className='bg-violet-700/75 mt-6 h-10 flex items-center'>
+			<Navigation layout='row' />
 		</header>
 	);
 };
