@@ -10,7 +10,7 @@ const Navigation = ({ layout = 'row' }) => {
 			<ul className={navClass}>
 				<li className={styles['nav-item']}>
 					<Link href='/'>
-						<span className='script-italics text-xl'>Elzar's</span>
+						<span className='script-italics text-2xl'>Elzar's</span>
 					</Link>
 				</li>
 				<li className={styles['nav-item']}>

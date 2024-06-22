@@ -17,4 +17,6 @@
 /* Optional: Add some common styling */
 .nav-item {
   margin: 0;
+  font-size: 1.1rem;
+  font-weight: normal;
 }

@@ -1,0 +1,14 @@
+.header {
+  background-color: rgba(123, 97, 255, 0.75); /* bg-violet-700/75 */
+  height: 80px; /* Initial height */
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  transition: height 0.3s ease;
+  z-index: 1000; /* Ensure it stays on top */
+}
+
+.header.scrolled {
+  height: 50px; /* Height when scrolled */
+}
