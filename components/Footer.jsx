@@ -7,7 +7,7 @@ const Footer = () => {
 	return (
 		<footer className='bg-emerald-500 p-4'>
 			<div className='grid grid-cols-2 gap-3 items-center'>
-				<div className='pl-4 flex items-center justify-around h-40'>
+				<div className='pl-4 flex items-center justify-around p-4'>
 					<Image
 						src={planetXprs}
 						alt='Planet Express Logo'
@@ -16,15 +16,15 @@ const Footer = () => {
 						layout='fixed'
 						className='hover:animate-flip-x mr-5'
 					/>
-					<div className='flex flex-col w-full'>
+					<div className='flex w-full'>
 						<Link
 							href='/delivery'
-							className='flex items-center justify-center border-2 border-emerald-500 bg-emerald-300 text-yellow-100 h-20 w-full rounded-xl text-xl hover:-translate-y-1 hover:drop-shadow-2xl active:drop-shadow-lg active:translate-y-0 transition ease-out duration-300 mb-4'>
+							className='flex items-center justify-center h-40 w-40 rounded-full border-emerald-500 bg-emerald-300 text-yellow-100 text-xl hover:-translate-y-1 hover:drop-shadow-2xl active:drop-shadow-lg active:translate-y-0 transition ease-out duration-300 mr-4'>
 							Order delivery
 						</Link>
 						<Link
 							href='/book'
-							className='flex items-center justify-center border-2 border-emerald-500 bg-emerald-300 text-yellow-100 h-20 w-full rounded-xl text-xl hover:-translate-y-1 hover:drop-shadow-2xl active:drop-shadow-lg active:translate-y-0 transition ease-out duration-300'>
+							className='flex items-center justify-center h-40 w-40 rounded-full border-emerald-500 bg-emerald-300 text-yellow-100 text-xl hover:-translate-y-1 hover:drop-shadow-2xl active:drop-shadow-lg active:translate-y-0 transition ease-out duration-300'>
 							Book a table
 						</Link>
 					</div>
