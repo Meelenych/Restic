@@ -8,34 +8,32 @@ import CircleText from '../helpers/CircleText';
 const Footer = () => {
 	return (
 		<footer className='bg-emerald-500 p-4'>
-			<div className='grid grid-cols-2 gap-3 items-center'>
+			<div className='grid grid-cols-1 md:grid-cols-2 gap-3 items-center'>
 				<div className='flex items-center justify-around p-4'>
 					<Link
 						href='/'
-						className='hover:animate-flip-x '>
+						className='hover:animate-flip-x w-20 h-20 md:w-32 md:h-32 lg:w-36 lg:h-36'>
 						<Image
 							className='hover:-translate-y-1 hover:drop-shadow-2xl active:drop-shadow-lg active:translate-y-0 transition ease-out duration-300'
 							src={planetXprs}
 							alt='Planet Express Logo'
-							width={156}
-							height={156}
 							layout='fixed'
 						/>
 					</Link>
 					<Link
 						href='/delivery'
 						className='hover:animate-flip-x '>
-						<div className='flex items-center justify-center w-36 h-36 relative border-4 border-black bg-amber-50 rounded-full hover:-translate-y-1 hover:drop-shadow-2xl active:drop-shadow-lg active:translate-y-0 transition ease-out duration-300'>
+						<div className='flex items-center justify-center w-20 h-20 md:w-32 md:h-32 lg:w-36 lg:h-36 relative border-4 border-black bg-amber-50 rounded-full hover:-translate-y-1 hover:drop-shadow-2xl active:drop-shadow-lg active:translate-y-0 transition ease-out duration-300'>
 							<CircleText text='order delivery' />
-							<div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 border-2 border-black bg-red-600 w-20 h-20 rounded-full'></div>
+							<div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 border-2 border-black bg-red-600 w-10 h-10 md:w-16 md:h-16 lg:w-20 lg:h-20 rounded-full'></div>
 						</div>
 					</Link>
 					<Link
 						href='/book'
 						className='hover:animate-flip-x '>
-						<div className='flex items-center justify-center w-36 h-36 relative border-4 border-black bg-amber-50 rounded-full hover:-translate-y-1 hover:drop-shadow-2xl active:drop-shadow-lg active:translate-y-0 transition ease-out duration-300'>
+						<div className='flex items-center justify-center w-20 h-20 md:w-32 md:h-32 lg:w-36 lg:h-36 relative border-4 border-black bg-amber-50 rounded-full hover:-translate-y-1 hover:drop-shadow-2xl active:drop-shadow-lg active:translate-y-0 transition ease-out duration-300'>
 							<CircleText text='book a table' />
-							<div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 border-2 border-black bg-red-600 w-20 h-20 rounded-full'></div>
+							<div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 border-2 border-black bg-red-600 w-10 h-10 md:w-16 md:h-16 lg:w-20 lg:h-20 rounded-full'></div>
 						</div>
 					</Link>
 				</div>

@@ -21,7 +21,7 @@ const Home = () => {
 							are offered at ridiculous prices"
 						</p>
 					</div>
-					<div className='w-1/3 grid grid-cols-2 gap-4'>
+					<div className='w-full md:w-1/2 lg:w-1/3 grid grid-cols-2 gap-4'>
 						<Link
 							href={'/menu'}
 							className='bg-pink-900 text-white text-center py-2 px-4 rounded-xl w-full hover:bg-pink-950 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition ease-in duration-300 mr-4'>
