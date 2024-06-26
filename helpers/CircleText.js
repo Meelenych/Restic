@@ -21,8 +21,12 @@ const CircleText = ({ text }) => {
 			<text>
 				<textPath
 					href='#circlePath'
-					className='font-extrabold text-xl'
-					style={{ wordSpacing: 1.2 + 'rem', letterSpacing: 0.05 + 'em' }}>
+					style={{
+						wordSpacing: 1.2 + 'rem',
+						letterSpacing: 0.05 + 'em',
+						fontWeight: 800,
+						fontSize: 1.25 + 'rem',
+					}}>
 					{text.toUpperCase()}
 				</textPath>
 			</text>

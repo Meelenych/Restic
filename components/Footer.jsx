@@ -5,22 +5,6 @@ import planetXprs from '../assets/png/Planet_Exp.png';
 import styles from '../styles/Footer.module.css';
 import CircleText from '../helpers/CircleText';
 
-const bendText = text => {
-	const length = text.length;
-	return text.split('').map((char, index) => {
-		const angle = (index / length) * 360;
-		return (
-			<span
-				key={index}
-				style={{
-					transform: `rotate(${angle}deg) translate(90px) rotate(-${angle}deg)`,
-				}}>
-				{char}
-			</span>
-		);
-	});
-};
-
 const Footer = () => {
 	return (
 		<footer className='bg-emerald-500 p-4'>
