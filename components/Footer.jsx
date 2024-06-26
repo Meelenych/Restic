@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import planetXprs from '../assets/png/Planet_Exp.png';
 import styles from '../styles/Footer.module.css';
+import CircleText from '../helpers/CircleText';
 
 const bendText = text => {
 	const length = text.length;
@@ -36,30 +37,7 @@ const Footer = () => {
 					<div className='flex w-full'>
 						<Link href='/delivery'>
 							<div className='w-30 h-30 p-3 relative border-4 border-black bg-amber-50 rounded-full hover:-translate-y-1 hover:drop-shadow-2xl active:drop-shadow-lg active:translate-y-0 transition ease-out duration-300 mr-4'>
-								<svg
-									width='100'
-									height='100'
-									viewBox='0 0 100 100'
-									xmlns='http://www.w3.org/2000/svg'>
-									<defs>
-										<path
-											id='circlePath'
-											d='
-            M 50, 50
-            m -40, 0
-            a 40,40 0 1,1 80,0
-            a 40,40 0 1,1 -80,0
-          '
-										/>
-									</defs>
-									<text>
-										<textPath
-											href='#circlePath'
-											className='font-extrabold text-xl'>
-											ORDER DELIVERY
-										</textPath>
-									</text>
-								</svg>
+								<CircleText text='order delivery' />
 								<div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 border-2 border-black bg-red-600 w-20 h-20 rounded-full'></div>
 							</div>
 						</Link>
