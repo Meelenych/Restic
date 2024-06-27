@@ -11,7 +11,7 @@ const Home = () => {
 				<div
 					style={{ backgroundImage: `url(${bgImg.src})` }}
 					className='-mt-20 bg-cover bg-center w-full h-dvh p-1 md:p-8 lg:p-16 flex flex-col items-start justify-center'>
-					<div className='p-4 backdrop-blur-sm bg-black/30 mb-4'>
+					<div className='p-4 backdrop-blur-sm rounded-xl bg-black/30 mb-4'>
 						<h1 className='text-6xl font-bold'>
 							<span className='text-yellow-500'>Welcome to</span>{' '}
 							<span className='text-emerald-500'>Elzar's Fine Cuisine</span>
