@@ -251,7 +251,7 @@ const Delivery = () => {
 								</div>
 								{/* Payment */}
 								<div className='flex flex-wrap border border-emerald-200 rounded-xl p-3 w-full mb-3 backdrop-blur-sm bg-black/30'>
-									<p className='w-full mb-3 font-semibold'>Personal information</p>
+									<p className='w-full mb-3 font-semibold'>Payment information</p>
 									{/* Payment method */}
 									<div className='w-full md:w-1/2 px-2 mb-4'>
 										<label
