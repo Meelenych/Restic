@@ -51,7 +51,7 @@ const Delivery = () => {
 						<form
 							onSubmit={handleSubmit}
 							className='space-y-4 text-emerald-300'>
-							<div className='flex flex-wrap '>
+							<div className='grid grid-cols-1 md:grid-cols-2 gap-3'>
 								{/* Personal */}
 								<div className='flex flex-wrap border border-emerald-200 rounded-xl p-3 w-full mb-3 backdrop-blur-sm bg-black/30'>
 									<p className='w-full mb-3 font-semibold'>Personal information</p>
