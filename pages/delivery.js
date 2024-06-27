@@ -4,15 +4,17 @@ import bgImgDeliverey from '../assets/images/Rocket.webp';
 
 const Delivery = () => {
 	const [formData, setFormData] = useState({
-		name: '',
+		first: '',
+		last: '',
 		phone: '',
 		email: '',
-		streetAddress: '',
+		street: '',
 		city: '',
 		state: '',
-		zipCode: '',
-		deliveryDateTime: '',
-		specialInstructions: '',
+		zip: '',
+		date: '',
+		time: '',
+		instructions: '',
 		paymentMethod: 'cash', // Default payment method
 		cardNumber: '',
 		expiryDate: '',
@@ -50,12 +52,13 @@ const Delivery = () => {
 							onSubmit={handleSubmit}
 							className='space-y-4 text-emerald-300'>
 							<div className='flex flex-wrap '>
+								{/* Personal */}
 								<div className='flex flex-wrap border border-emerald-200 rounded-xl p-3 w-full mb-3 backdrop-blur-sm bg-black/30'>
 									<p className='w-full mb-3 font-semibold'>Personal information</p>
 									{/* First name */}
 									<div className='w-full md:w-1/2 px-2 mb-4'>
 										<label
-											htmlFor='name'
+											htmlFor='first'
 											className='block text-sm font-medium text-purple-500'>
 											First name
 										</label>
@@ -121,7 +124,8 @@ const Delivery = () => {
 										/>
 									</div>
 								</div>
-								<div className='flex flex-wrap border border-emerald-200 rounded-xl p-3 w-full backdrop-blur-sm bg-black/30'>
+								{/* Address */}
+								<div className='flex flex-wrap border border-emerald-200 rounded-xl p-3 w-full mb-3 backdrop-blur-sm bg-black/30'>
 									<p className='w-full mb-3 font-semibold'>Address</p>
 									{/* Street */}
 									<div className='w-full md:w-1/2 px-2 mb-4'>
@@ -192,26 +196,136 @@ const Delivery = () => {
 										/>
 									</div>
 								</div>
+								{/* Time and date */}
+								<div className='flex flex-wrap border border-emerald-200 rounded-xl p-3 w-full mb-3 backdrop-blur-sm bg-black/30'>
+									<p className='w-full mb-3 font-semibold'>Time and date</p>
+									{/* Date */}
+									<div className='w-full md:w-1/2 px-2 mb-4'>
+										<label
+											htmlFor='date'
+											className='block text-sm font-medium text-purple-500'>
+											Date
+										</label>
+										<input
+											type='date'
+											id='date'
+											name='date'
+											value={formData.date}
+											onChange={handleChange}
+											required
+											className='mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50'
+										/>
+									</div>
+									{/* Time */}
+									<div className='w-full md:w-1/2 px-2 mb-4'>
+										<label
+											htmlFor='time'
+											className='block text-sm font-medium text-purple-500'>
+											Time
+										</label>
+										<input
+											type='time'
+											id='time'
+											name='time'
+											value={formData.time}
+											onChange={handleChange}
+											required
+											className='mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50'
+										/>
+									</div>
+									{/* Instructions */}
+									<div className='w-full px-2 mb-4'>
+										<label
+											htmlFor='instructions'
+											className='block text-sm font-medium text-purple-500'>
+											Special instructions
+										</label>
+										<textarea
+											id='instructions'
+											name='instructions'
+											value={formData.instructions}
+											onChange={handleChange}
+											className='mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50'
+										/>
+									</div>
+								</div>
+								{/* Payment */}
+								<div className='flex flex-wrap border border-emerald-200 rounded-xl p-3 w-full mb-3 backdrop-blur-sm bg-black/30'>
+									<p className='w-full mb-3 font-semibold'>Personal information</p>
+									{/* Payment method */}
+									<div className='w-full md:w-1/2 px-2 mb-4'>
+										<label
+											htmlFor='paymentMethod'
+											className='block text-sm font-medium text-purple-500'>
+											Payment method
+										</label>
+										<select
+											value={formData.paymentMethod}
+											onChange={handleChange}
+											className='h-6 mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50'>
+											<option
+												disabled
+												selected>
+												Select payment method
+											</option>
+											<option>Card</option>
+											<option>Paypal</option>
+											<option>Bank account</option>
+										</select>
+									</div>
+									{/* Card number */}
+									<div className='w-full md:w-1/2 px-2 mb-4'>
+										<label
+											htmlFor='cardNumber'
+											className='block text-sm font-medium text-purple-500'>
+											Card number
+										</label>
+										<input
+											type='text'
+											id='cardNumber'
+											name='cardNumber'
+											value={formData.cardNumber}
+											onChange={handleChange}
+											required
+											className='mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50'
+										/>
+									</div>
+									{/* Expiry date */}
+									<div className='w-full md:w-1/2 px-2 mb-4'>
+										<label
+											htmlFor='expiryDate'
+											className='block text-sm font-medium text-purple-500'>
+											Expiry date
+										</label>
+										<input
+											type='date'
+											id='expiryDate'
+											name='expiryDate'
+											value={formData.expiryDate}
+											onChange={handleChange}
+											required
+											className='mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50'
+										/>
+									</div>
+									{/* CVV */}
+									<div className='w-full md:w-1/2 px-2 mb-4'>
+										<label
+											htmlFor='cvv'
+											className='block text-sm font-medium text-purple-500'>
+											CVV
+										</label>
+										<input
+											type='number'
+											id='cvv'
+											name='cvv'
+											value={formData.cvv}
+											onChange={handleChange}
+											required
+											className='mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50'
+										/>
+									</div>
+								</div>
 							</div>
-
-							{/* Add other fields similarly */}
-							{/* Order Details:
-
-Date & Time of Delivery:
-Special Instructions:
-Menu Selection (Please specify quantities):
-
-Item 1:
-Item 2:
-Item 3:
-...
-Payment Information:
-
-Payment Method (Cash on Delivery / Credit Card):
-Credit Card Information (if applicable):
-Card Number:
-Expiry Date:
-CVV: */}
 
 							<button
 								type='submit'
