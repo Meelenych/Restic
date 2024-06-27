@@ -48,7 +48,7 @@ const Delivery = () => {
 						<h1 className='text-2xl font-bold mb-4'>Food Delivery Order Form</h1>
 						<form
 							onSubmit={handleSubmit}
-							className='space-y-4'>
+							className='space-y-4 text-emerald-300'>
 							<div className='flex flex-wrap '>
 								<div className='flex flex-wrap border border-emerald-200 rounded-xl p-3 w-full mb-3 backdrop-blur-sm bg-black/30'>
 									<p className='w-full mb-3 font-semibold'>Personal information</p>
@@ -56,7 +56,7 @@ const Delivery = () => {
 									<div className='w-full md:w-1/2 px-2 mb-4'>
 										<label
 											htmlFor='name'
-											className='block text-sm font-medium text-gray-700'>
+											className='block text-sm font-medium text-purple-500'>
 											First name
 										</label>
 										<input
@@ -73,7 +73,7 @@ const Delivery = () => {
 									<div className='w-full md:w-1/2 px-2 mb-4'>
 										<label
 											htmlFor='last'
-											className='block text-sm font-medium text-gray-700'>
+											className='block text-sm font-medium text-purple-500'>
 											Last name
 										</label>
 										<input
@@ -90,7 +90,7 @@ const Delivery = () => {
 									<div className='w-full md:w-1/2 px-2 mb-4'>
 										<label
 											htmlFor='phone'
-											className='block text-sm font-medium text-gray-700'>
+											className='block text-sm font-medium text-purple-500'>
 											Phone Number
 										</label>
 										<input
@@ -107,7 +107,7 @@ const Delivery = () => {
 									<div className='w-full md:w-1/2 px-2 mb-4'>
 										<label
 											htmlFor='email'
-											className='block text-sm font-medium text-gray-700'>
+											className='block text-sm font-medium text-purple-500'>
 											Email
 										</label>
 										<input
@@ -127,7 +127,7 @@ const Delivery = () => {
 									<div className='w-full md:w-1/2 px-2 mb-4'>
 										<label
 											htmlFor='street'
-											className='block text-sm font-medium text-gray-700'>
+											className='block text-sm font-medium text-purple-500'>
 											Street
 										</label>
 										<input
@@ -144,7 +144,7 @@ const Delivery = () => {
 									<div className='w-full md:w-1/2 px-2 mb-4'>
 										<label
 											htmlFor='city'
-											className='block text-sm font-medium text-gray-700'>
+											className='block text-sm font-medium text-purple-500'>
 											City
 										</label>
 										<input
@@ -161,7 +161,7 @@ const Delivery = () => {
 									<div className='w-full md:w-1/2 px-2 mb-4'>
 										<label
 											htmlFor='state'
-											className='block text-sm font-medium text-gray-700'>
+											className='block text-sm font-medium text-purple-500'>
 											State
 										</label>
 										<input
@@ -178,7 +178,7 @@ const Delivery = () => {
 									<div className='w-full md:w-1/2 px-2 mb-4'>
 										<label
 											htmlFor='zip'
-											className='block text-sm font-medium text-gray-700'>
+											className='block text-sm font-medium text-purple-500'>
 											ZIP Code
 										</label>
 										<input
