@@ -27,13 +27,12 @@ const Delivery = () => {
 			...formData,
 			[name]: value,
 		});
-		console.log('formData', formData);
 	};
 
 	const handleSubmit = e => {
 		e.preventDefault();
 		// Handle form submission logic here (e.g., send data to server)
-		console.log(formData);
+		console.log('formData', formData);
 		// Clear form fields after submission (if needed)
 		// setFormData({ ...initialState });
 	};
@@ -261,16 +260,17 @@ const Delivery = () => {
 										</label>
 										<select
 											value={formData.paymentMethod}
+											name='paymentMethod'
 											onChange={handleChange}
 											className='px-2 py-1 h-8 mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50'>
 											<option
-												disabled
-												selected>
+												value=''
+												disabled>
 												Select payment method
 											</option>
-											<option>Card</option>
-											<option>Paypal</option>
-											<option>Bank account</option>
+											<option value='Card'>Card</option>
+											<option value='Paypal'>Paypal</option>
+											<option value='Bank account'>Bank account</option>
 										</select>
 									</div>
 									{/* Card number */}

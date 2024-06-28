@@ -17,7 +17,6 @@ const Footer = () => {
 							className='w-[86px] md:w-32 lg:w-[156px] h-auto hover:-translate-y-1 hover:drop-shadow-2xl active:drop-shadow-lg active:translate-y-0 transition ease-out duration-300'
 							src={planetXprs}
 							alt='Planet Express Logo'
-							layout='fixed'
 						/>
 					</Link>
 					<Link
