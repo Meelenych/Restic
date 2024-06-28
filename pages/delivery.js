@@ -281,10 +281,11 @@ const Delivery = () => {
 											Card number
 										</label>
 										<input
-											type='number'
+											type='text'
 											id='cardNumber'
 											name='cardNumber'
-											maxLength='16'
+											maxLength={19}
+											placeholder='xxxx-xxxx-xxxx-xxxx'
 											value={formData.cardNumber}
 											onChange={handleChange}
 											required
@@ -299,11 +300,14 @@ const Delivery = () => {
 											Expiry date
 										</label>
 										<input
-											type='date'
+											type='text'
 											id='expiryDate'
 											name='expiryDate'
 											value={formData.expiryDate}
 											onChange={handleChange}
+											placeholder='MM/YYYY'
+											pattern='^(0[1-9]|1[0-2])\/\d{4}$'
+											title='Enter a valid expiration date in MM/YYYY format'
 											required
 											className='px-2 py-1 mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50'
 										/>
@@ -316,7 +320,7 @@ const Delivery = () => {
 											CVV
 										</label>
 										<input
-											type='number'
+											type='text'
 											id='cvv'
 											name='cvv'
 											maxLength='3'
