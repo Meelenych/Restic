@@ -1,6 +1,7 @@
 import Layout from '../components/Layout';
 import { useState } from 'react';
 import bgImgDeliverey from '../assets/images/Rocket.webp';
+import Link from 'next/link';
 
 const Delivery = () => {
 	const [formData, setFormData] = useState({
