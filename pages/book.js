@@ -46,8 +46,8 @@ const Book = () => {
 					className='p-1 md:p-8 lg:p-16 flex
           flex-col items-start justify-start'>
 					<div className='container mx-auto p-4'>
-						<h1 className='text-2xl font-bold mb-4 text-indigo-600 drop-shadow-2xl shadow-white'>
-							Book a table
+						<h1 className='text-2xl font-bold mb-4 text-indigo-600'>
+							Book a table at our marvelous restaurant
 						</h1>
 						<form
 							onSubmit={handleSubmit}
@@ -202,17 +202,17 @@ const Book = () => {
 								<button
 									type='button'
 									onClick={() => clearForm()}
-									className='bg-amber-500 text-white py-2 px-4 rounded-xl w-full md:w-96 md:mr-4 mb-4 md:mb-0 hover:bg-amber-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition ease-in duration-300'>
+									className='hover:animate-pulse-glow bg-amber-500 text-white py-2 px-4 rounded-xl w-full md:w-96 md:mr-4 mb-4 md:mb-0 hover:bg-amber-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition ease-in duration-300'>
 									Clear form
 								</button>
 								<button
 									type='submit'
-									className='bg-indigo-500 text-white py-2 px-4 rounded-xl w-full md:w-96 md:mr-4 mb-4 md:mb-0 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition ease-in duration-300'>
+									className='hover:animate-pulse-glow bg-indigo-500 text-white py-2 px-4 rounded-xl w-full md:w-96 md:mr-4 mb-4 md:mb-0 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition ease-in duration-300'>
 									Book a table
 								</button>
 								<Link
 									href='/'
-									className='bg-red-500 text-white text-center py-2 px-4 rounded-xl w-full md:w-96 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition ease-in duration-300'>
+									className='hover:animate-pulse-glow bg-red-500 text-white text-center py-2 px-4 rounded-xl w-full md:w-96 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition ease-in duration-300'>
 									Cancel
 								</Link>
 							</div>
