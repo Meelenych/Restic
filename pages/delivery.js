@@ -4,7 +4,7 @@ import bgImgDeliverey from '../assets/images/Rocket.webp';
 import Link from 'next/link';
 
 const Delivery = () => {
-	const [formData, setFormData] = useState({
+	const initialState = {
 		first: '',
 		last: '',
 		phone: '',
@@ -20,7 +20,9 @@ const Delivery = () => {
 		cardNumber: '',
 		expiryDate: '',
 		cvv: '',
-	});
+	};
+
+	const [formData, setFormData] = useState(initialState);
 
 	const handleChange = e => {
 		const { name, value } = e.target;
@@ -36,6 +38,10 @@ const Delivery = () => {
 		console.log('formData', formData);
 		// Clear form fields after submission (if needed)
 		// setFormData({ ...initialState });
+	};
+
+	const clearForm = () => {
+		setFormData(initialState);
 	};
 
 	return (
@@ -334,11 +340,24 @@ const Delivery = () => {
 								</div>
 							</div>
 
-							<button
-								type='submit'
-								className='bg-indigo-500 text-white py-2 px-4 rounded-xl w-full hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition ease-in duration-300'>
-								Submit Order
-							</button>
+							<div className='w-full flex justify-between flex-col md:flex-row'>
+								<button
+									type='button'
+									onClick={() => clearForm()}
+									className='bg-amber-500 text-white py-2 px-4 rounded-xl w-full md:w-96 md:mr-4 mb-4 md:mb-0 hover:bg-amber-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition ease-in duration-300'>
+									Clear form
+								</button>
+								<button
+									type='submit'
+									className='bg-indigo-500 text-white py-2 px-4 rounded-xl w-full md:w-96 md:mr-4 mb-4 md:mb-0 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition ease-in duration-300'>
+									Confirm order
+								</button>
+								<Link
+									href='/'
+									className='bg-red-500 text-white text-center py-2 px-4 rounded-xl w-full md:w-96 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition ease-in duration-300'>
+									Cancel
+								</Link>
+							</div>
 						</form>
 					</div>
 				</div>

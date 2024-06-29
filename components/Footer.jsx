@@ -14,7 +14,7 @@ const Footer = () => {
 						href='/'
 						className='hover:animate-spin-slow '>
 						<Image
-							className='w-[86px] md:w-32 lg:w-[170px] h-auto active:drop-shadow-lg active:translate-y-0 transition ease-out duration-300'
+							className='w-[96px] md:w-32 lg:w-[170px] h-auto active:drop-shadow-lg active:translate-y-0 transition ease-out duration-300'
 							src={planetXprs}
 							alt='Planet Express Logo'
 						/>
