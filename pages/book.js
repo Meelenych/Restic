@@ -36,7 +36,7 @@ const Book = () => {
 
 		// Redirect to confirmation page with form data as query parameters
 		router.push({
-			pathname: '/bookConfirmation',
+			pathname: '/book_confirmation',
 			query: formData,
 		});
 
