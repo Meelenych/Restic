@@ -37,5 +37,5 @@ module.exports = {
       animation: ['hover'], // Enable hover variant for animation
     },
   },
-  plugins: [],
+  plugins: [require('daisyui'),],
 };

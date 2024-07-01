@@ -1,3 +1,4 @@
+'use client';
 import Layout from '../components/Layout';
 import bgImgBook from '../assets/images/table.jpg';
 import { useState } from 'react';
@@ -31,10 +32,19 @@ const Book = () => {
 		console.log('formData', formData);
 		// Clear form fields after submission (if needed)
 		// setFormData({ ...initialState });
+		closeModal();
 	};
 
 	const clearForm = () => {
 		setFormData(initialState);
+	};
+
+	const showModal = () => {
+		document.getElementById('booking_modal').showModal();
+	};
+
+	const closeModal = () => {
+		document.getElementById('booking_modal').close();
 	};
 
 	return (
@@ -50,6 +60,7 @@ const Book = () => {
 							Book a table at our marvelous restaurant
 						</h1>
 						<form
+							id='booking-form'
 							onSubmit={handleSubmit}
 							className='space-y-4 text-emerald-300'>
 							<div className='grid grid-cols-1 md:grid-cols-2 gap-3'>
@@ -206,7 +217,8 @@ const Book = () => {
 									Clear form
 								</button>
 								<button
-									type='submit'
+									type='button'
+									onClick={showModal}
 									className='hover:animate-pulse-glow bg-indigo-500 text-white py-2 px-4 rounded-xl w-full md:w-96 md:mr-4 mb-4 md:mb-0 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition ease-in duration-300'>
 									Book a table
 								</button>
@@ -216,6 +228,31 @@ const Book = () => {
 									Cancel
 								</Link>
 							</div>
+							{/* Modal */}
+							<dialog
+								id='booking_modal'
+								className='modal'>
+								<div className='modal-box'>
+									<h3 className='font-bold text-lg'>Confirm your reservation</h3>
+									<p className='py-4'>
+										Please confirm to submit your reservation details.
+									</p>
+									<div className='modal-action'>
+										<button
+											type='submit'
+											form='booking-form'
+											className='hover:animate-pulse-glow bg-indigo-500 text-white py-2 px-4 rounded-xl w-full md:w-96 md:mr-4 mb-4 md:mb-0 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition ease-in duration-300'>
+											Confirm your reservation
+										</button>
+										<button
+											type='button'
+											onClick={() => closeModal()}
+											className='btn'>
+											Close
+										</button>
+									</div>
+								</div>
+							</dialog>
 						</form>
 					</div>
 				</div>
