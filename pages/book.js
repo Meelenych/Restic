@@ -16,9 +16,13 @@ const Book = () => {
 		guests: '',
 		instructions: '',
 	};
+
 	// Initialize form data with initial state
 	const [formData, setFormData] = useState(initialState);
 	const router = useRouter();
+
+	const { first, last, phone, email, date, time, guests, instructions } =
+		formData;
 
 	const handleChange = e => {
 		const { name, value } = e.target;
@@ -242,21 +246,30 @@ const Book = () => {
 								className='modal'>
 								<div className='modal-box'>
 									<h3 className='font-bold text-lg'>Confirm your reservation</h3>
-									<p className='py-4'>
-										Please confirm to submit your reservation details.
-									</p>
+									<p className='py-4'>Please confirm your reservation details.</p>
+									<div>
+										<p>
+											Name: {first} {last}
+										</p>
+										<p>Phone: {phone}</p>
+										<p>Email: {email}</p>
+										<p>Date: {date}</p>
+										<p>Time: {time}</p>
+										<p>Guests: {guests}</p>
+										<p>Special Instructions: {instructions}</p>
+									</div>
 									<div className='modal-action'>
 										<button
 											type='submit'
 											form='booking-form'
-											className='hover:animate-pulse-glow bg-indigo-500 text-white py-2 px-4 rounded-xl w-full md:w-96 md:mr-4 mb-4 md:mb-0 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition ease-in duration-300'>
+											className='hover:animate-pulse-glow bg-indigo-500 text-white py-2 px-4 rounded-xl w-full md:w-96 mr-4 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition ease-in duration-300'>
 											Confirm your reservation
 										</button>
 										<button
 											type='button'
 											onClick={() => closeModal()}
-											className='btn'>
-											Close
+											className='hover:animate-pulse-glow bg-red-500 text-white text-center py-2 px-4 rounded-xl w-full md:w-96 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition ease-in duration-300'>
+											Cancel
 										</button>
 									</div>
 								</div>

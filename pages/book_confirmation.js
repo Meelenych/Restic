@@ -8,6 +8,37 @@ const BookConfirmation = () => {
 	const { first, last, phone, email, date, time, guests, instructions } =
 		router.query;
 
+	// // Import necessary libraries
+	// const sgMail = require('@sendgrid/mail');
+	// sgMail.setApiKey(process.env.SENDGRID_API_KEY); // Set your SendGrid API key
+
+	// // Function to send booking confirmation email
+	// async function sendBookingConfirmationEmail(email, bookingDetails) {
+	// 	const msg = {
+	// 		to: email,
+	// 		from: 'your@example.com', // Use your verified sender address
+	// 		subject: 'Booking Confirmation',
+	// 		html: `<p>Hello,</p>
+	//          <p>Your booking has been confirmed with the following details:</p>
+	//          <ul>
+	//            <li>Name: ${bookingDetails.first} ${bookingDetails.last}</li>
+	//            <li>Date: ${bookingDetails.date}</li>
+	//            <li>Time: ${bookingDetails.time}</li>
+	//            <li>Guests: ${bookingDetails.guests}</li>
+	//            <li>Special Instructions: ${bookingDetails.instructions}</li>
+	//          </ul>`,
+	// 	};
+
+	// 	try {
+	// 		await sgMail.send(msg);
+	// 		console.log('Email sent successfully');
+	// 	} catch (error) {
+	// 		console.error('Error sending email:', error.toString());
+	// 	}
+	// }
+
+	// module.exports = { sendBookingConfirmationEmail };
+
 	return (
 		<Layout>
 			<h1>
