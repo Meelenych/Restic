@@ -3,6 +3,7 @@ import Layout from '../components/Layout';
 import bgImgBook from '../assets/images/table.jpg';
 import { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 const Book = () => {
 	const initialState = {
@@ -17,6 +18,7 @@ const Book = () => {
 	};
 	// Initialize form data with initial state
 	const [formData, setFormData] = useState(initialState);
+	const router = useRouter();
 
 	const handleChange = e => {
 		const { name, value } = e.target;
@@ -30,8 +32,14 @@ const Book = () => {
 		e.preventDefault();
 		// Handle form submission logic here (e.g., send data to server)
 		console.log('formData', formData);
-		// Clear form fields after submission (if needed)
-		// setFormData({ ...initialState });
+		clearForm();
+
+		// Redirect to confirmation page with form data as query parameters
+		router.push({
+			pathname: '/bookConfirmation',
+			query: formData,
+		});
+
 		closeModal();
 	};
 
