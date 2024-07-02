@@ -1,16 +1,17 @@
 A fun and quirky menu inspired by Elzar's fine cuisine from Futurama:
 
 1. Galactic Gumbo
+   A spicy blend of Neptune's spicy tentacles and Marsian red peppers, served with Martian moon rice.
 
-A spicy blend of Neptune's spicy tentacles and Marsian red peppers, served with Martian moon rice. 2. Robot Oil Fondue
+2. Robot Oil Fondue
+   Crispy lunar chips dipped in a hot pot of savory robot oil, infused with Plutonian herbs and Uranian spices.
 
-Crispy lunar chips dipped in a hot pot of savory robot oil, infused with Plutonian herbs and Uranian spices.
-Zorgon Zucchini Surprise
+3. Zorgon Zucchini Surprise
+   Grilled Zorgon zucchinis stuffed with Andromedan cheese and topped with Saturnian rings of crispy bacon.
 
-Grilled Zorgon zucchinis stuffed with Andromedan cheese and topped with Saturnian rings of crispy bacon.
-Quasar Quiche
+4. Quasar Quiche
+   A celestial quiche made with Quasar eggs, Nova sausage, and a blend of interstellar cheeses, served in a cosmic crust.
 
-A celestial quiche made with Quasar eggs, Nova sausage, and a blend of interstellar cheeses, served in a cosmic crust.
 Nebula Noodles
 
 A fusion of spiral nebula pasta, Venusian garlic, and asteroid mushrooms in a savory Milky Way sauce.
