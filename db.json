@@ -1,6 +1,6 @@
 {
 	"dishes": [
-		{ "id": "1", "title": "a title1" },
-		{ "id": "2", "title": "a title2" }
+		{ "id": "1", "title": "Galactic Gumbo", "description":"A spicy blend of Neptune's spicy tentacles and Marsian red peppers, served with Martian moon rice." },
+		{ "id": "2", "title": "Robot Oil Fondue", "description": "Crispy lunar chips dipped in a hot pot of savory robot oil, infused with Plutonian herbs and Uranian spices." }
 	]
 }

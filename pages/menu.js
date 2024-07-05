@@ -25,7 +25,10 @@ const Menu = () => {
 			<ul>
 				{dishes.map(dish => (
 					<li key={dish.id}>
-						Item {dish.id}: {dish.title}
+						<p> Item {dish.id}: {dish.title}</p>
+            <p>Description: {dish.description}</p>
+            <p>Price: ${dish.price}</p>
+            <p>Category: {dish.category}</p>
 					</li>
 				))}
 			</ul>
