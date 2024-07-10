@@ -1,5 +1,6 @@
 import Layout from '../components/Layout';
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import axios from 'axios';
 import Image from 'next/image';
 
@@ -36,12 +37,19 @@ const Menu = () => {
 									/>
 								</figure>
 								<div className='card-body'>
-									<h2 className='card-title'>
+									<h2 className='card-title line-clamp-1'>
 										Item {dish.id}: {dish.title}
 									</h2>
-									<p>Description: {dish.description}</p>
-									<div className='card-actions justify-end'>
-										<button className='btn btn-primary'>Order now!</button>
+									<p className='line-clamp-3'>Description: {dish.description}</p>
+									<div className='w-full flex justify-between flex-col md:flex-row'>
+										<Link
+											href='/'
+											className='text-center hover:animate-pulse-glow bg-amber-500 text-white py-2 px-4 rounded-xl w-full md:w-96 md:mr-4 mb-4 md:mb-0 hover:bg-amber-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition ease-in duration-300'>
+											Learn more
+										</Link>
+										<button className='hover:animate-pulse-glow bg-indigo-500 text-white py-2 px-4 rounded-xl w-full md:w-96 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition ease-in duration-300'>
+											Order now!
+										</button>
 									</div>
 								</div>
 							</div>
