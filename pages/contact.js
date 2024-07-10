@@ -3,7 +3,9 @@ import Layout from '../components/Layout';
 const Contact = () => {
 	return (
 		<Layout>
-			<h1>Contact Page</h1>
+			<div className='p-5'>
+				<h1>Contact Page</h1>
+			</div>
 		</Layout>
 	);
 };
