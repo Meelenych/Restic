@@ -27,14 +27,14 @@ const Menu = () => {
           <li key={dish.id}>
             <p>Item {dish.id}: {dish.title}</p>
             <p>Description: {dish.description}</p>
-            <Image 
+            <Image s
               src={dish.image} 
               alt={`Image of ${dish.title}`} 
               width={400} 
               height={300}
               unoptimized
             />
-          </li>
+            <img src='../assets/images/webp/Celestial_Quiche.webp' alt='' width={100} height={70}/>        </li>
         ))}
       </ul>
     </Layout>
