@@ -28,11 +28,6 @@ const Navigation = ({ layout = 'row' }) => {
 						<span>Gallery</span>
 					</Link>
 				</li>
-				{/* <li className={styles['nav-item']}>
-					<Link href='/book'>
-						<span>Book a table</span>
-					</Link>
-				</li> */}
 				<li className={styles['nav-item']}>
 					<Link href='/contact'>
 						<span>Contact</span>
