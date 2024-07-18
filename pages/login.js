@@ -115,8 +115,8 @@ const Login = () => {
 								</button>
 								<Link
 									href='/register'
-									className='hover:animate-pulse-glow bg-emerald-800 text-white text-center py-2 px-4 rounded-xl w-full md:w-96 mb-4 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition ease-in duration-300'>
-									Register
+									className='hover:animate-pulse-glow bg-emerald-600 text-white text-center py-2 px-4 rounded-xl w-full md:w-96 mb-4 hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition ease-in duration-300'>
+									I have no account / Register
 								</Link>
 								<Link
 									href='/'

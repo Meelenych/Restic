@@ -66,9 +66,9 @@ const Register = () => {
 							onSubmit={handleSubmit}
 							className='space-y-4 text-emerald-300'>
 							<div className='grid grid-cols-1'>
-								{/* Login */}
+								{/* Register */}
 								<div className='flex flex-wrap border border-emerald-200 rounded-xl p-3 w-full mb-3 backdrop-blur-sm bg-black/30'>
-									<p className='w-full mb-3 font-semibold'>Please log in</p>
+									<p className='w-full mb-3 font-semibold'>Create your account</p>
 									{/*Login */}
 									<div className='w-full px-2 mb-4'>
 										<label
@@ -105,6 +105,78 @@ const Register = () => {
 									</div>
 								</div>
 							</div>
+							{/* Personal */}
+							<div className='flex flex-wrap border border-emerald-200 rounded-xl p-3 w-full mb-3 backdrop-blur-sm bg-black/30'>
+								<p className='w-full mb-3 font-semibold'>Personal information</p>
+								{/* First name */}
+								<div className='w-full md:w-1/2 px-2 mb-4'>
+									<label
+										htmlFor='first'
+										className='block text-sm font-medium text-purple-300'>
+										First name
+									</label>
+									<input
+										type='text'
+										id='first'
+										name='first'
+										value={formData.first}
+										onChange={handleChange}
+										required
+										className='px-2 py-1 mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50'
+									/>
+								</div>
+								{/* Last name */}
+								<div className='w-full md:w-1/2 px-2 mb-4'>
+									<label
+										htmlFor='last'
+										className='block text-sm font-medium text-purple-300'>
+										Last name
+									</label>
+									<input
+										type='text'
+										id='last'
+										name='last'
+										value={formData.last}
+										onChange={handleChange}
+										required
+										className='px-2 py-1 mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50'
+									/>
+								</div>
+								{/* Email */}
+								<div className='w-full md:w-1/2 px-2 mb-4'>
+									<label
+										htmlFor='email'
+										className='block text-sm font-medium text-purple-300'>
+										Email
+									</label>
+									<input
+										type='email'
+										id='email'
+										name='email'
+										value={formData.email}
+										onChange={handleChange}
+										required
+										className='px-2 py-1 mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50'
+									/>
+								</div>
+								{/* Phone */}
+								<div className='w-full md:w-1/2 px-2 mb-4'>
+									<label
+										htmlFor='phone'
+										className='block text-sm font-medium text-purple-300'>
+										Phone Number
+									</label>
+									<input
+										type='tel'
+										id='phone'
+										name='phone'
+										value={formData.phone}
+										onChange={handleChange}
+										required
+										className='px-2 py-1 mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50'
+									/>
+								</div>
+							</div>
 							<div className='grid grid-cols-1'>
 								<button
 									type='button'
@@ -115,12 +187,12 @@ const Register = () => {
 								<button
 									type='submit'
 									className='hover:animate-pulse-glow bg-indigo-500 text-white py-2 px-4 rounded-xl w-full md:w-96 mb-4 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition ease-in duration-300'>
-									Log in
+									Register
 								</button>
 								<Link
-									href='/register'
-									className='hover:animate-pulse-glow bg-emerald-800 text-white text-center py-2 px-4 rounded-xl w-full md:w-96 mb-4 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition ease-in duration-300'>
-									Register
+									href='/login'
+									className='hover:animate-pulse-glow bg-emerald-600 text-white text-center py-2 px-4 rounded-xl w-full md:w-96 mb-4 hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition ease-in duration-300'>
+									I have an account / Login
 								</Link>
 								<Link
 									href='/'
