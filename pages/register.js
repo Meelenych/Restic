@@ -48,7 +48,7 @@ const Register = () => {
 			<div className='p-5 grid grid-cols-1 md:grid-cols-2 w-full'>
 				<div className='flex items-center justify-center md:justify-end'>
 					<Image
-						className='hidden md:block'
+						className='hidden md:block animate-jumpOut'
 						src={'webp/Lord_Nibbler.webp'}
 						alt={``}
 						width={300}
