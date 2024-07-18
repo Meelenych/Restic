@@ -42,7 +42,7 @@ const Login = () => {
 	return (
 		<Layout>
 			<div className='p-5 grid grid-cols-1 md:grid-cols-2 w-full'>
-				<div className='flex items-center justify-center'>
+				<div className='flex items-center justify-center md:justify-end'>
 					<Image
 						className='hidden md:block'
 						src={'webp/Fry2.webp'}
@@ -54,7 +54,7 @@ const Login = () => {
 				</div>
 				<div
 					className='p-1 md:p-8 lg:p-16 flex
-          flex-col items-center md:sitems-start justify-start'>
+          flex-col items-center md:items-start justify-start'>
 					<div className='w-full md:w-96'>
 						<h1 className='text-2xl font-bold mb-4 text-indigo-600'>Log in here</h1>
 						<form
