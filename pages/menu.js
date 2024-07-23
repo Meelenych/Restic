@@ -41,7 +41,7 @@ const Menu = () => {
 									<p className='line-clamp-2'>{dish.description}</p>
 									<div className='w-full flex justify-between flex-col md:flex-row'>
 										<Link
-											href='/'
+											href={`/menu/${dish.id}`}
 											className='hover:text-amber-500 py-2 w-full md:w-96 md:mr-4 mb-4 md:mb-0 focus:outline-none hover:underline transition ease-in duration-300'>
 											Learn more...
 										</Link>
