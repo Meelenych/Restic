@@ -24,8 +24,8 @@ module.exports = {
           '50%': {boxShadow: '0 0 35px 15px #fbbf24'},
         },
         'pulse-glow-indigo': {
-          '0%, 100%': {boxShadow: '0 0 15px 5px #818cf8'},
-          '50%': {boxShadow: '0 0 35px 15px #818cf8'},
+          '0%, 100%': {boxShadow: '0 0 15px 5px #6366f1'},
+          '50%': {boxShadow: '0 0 35px 15px #6366f1'},
         },
         'pulse-glow-red': {
           '0%, 100%': {boxShadow: '0 0 15px 5px #f87171'},
