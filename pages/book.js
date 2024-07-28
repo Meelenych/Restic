@@ -245,7 +245,7 @@ const Book = () => {
 								id='booking_modal'
 								className='modal'>
 								<div className='modal-box'>
-									<h3 className='font-bold text-lg'>Confirm your reservation</h3>
+									<h3 className='font-bold text-lg'>Confirm your reservation?</h3>
 									<p className='py-4'>Please confirm your reservation details.</p>
 									<div>
 										<p>
@@ -263,7 +263,7 @@ const Book = () => {
 											type='submit'
 											form='booking-form'
 											className='hover:animate-pulse-glow-indigo bg-indigo-500 text-white py-2 px-4 rounded-xl w-full md:w-96 mr-4 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition ease-in duration-300'>
-											Confirm your reservation
+											Confirm
 										</button>
 										<button
 											type='button'

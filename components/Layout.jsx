@@ -5,7 +5,7 @@ const Layout = ({ children }) => {
 	return (
 		<div className='flex flex-col min-h-screen'>
 			<Header />
-			<main className='h-dvh flex-grow bg-gradient-to-br from-emerald-400 via-purple-500 to-red-500'>
+			<main className='flex-grow min-h-0 overflow-y-auto h-dvh bg-gradient-to-br from-emerald-400 via-purple-500 to-red-500'>
 				<div className=''>{children}</div>
 			</main>
 			<Footer />

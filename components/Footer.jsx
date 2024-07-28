@@ -2,7 +2,6 @@ import Navigation from './Navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import planetXprs from '../assets/images/png/Planet_Exp.png';
-import styles from '../styles/Footer.module.css';
 import CircleText from '../helpers/CircleText';
 
 const Footer = () => {
