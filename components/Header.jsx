@@ -26,29 +26,44 @@ const Header = () => {
 			<div className='navbar'>
 				<div className='flex-1'>
 					<div className='navbar-start sm:block md:hidden'>
-						<div className='dropdown'>
-							<div
-								tabIndex={0}
-								role='button'
-								className='btn btn-ghost btn-circle'>
-								<svg
-									xmlns='http://www.w3.org/2000/svg'
-									className='h-5 w-5'
-									fill='none'
-									viewBox='0 0 24 24'
-									stroke='currentColor'>
-									<path
-										strokeLinecap='round'
-										strokeLinejoin='round'
-										strokeWidth='2'
-										d='M4 6h16M4 12h16M4 18h7'
-									/>
-								</svg>
+						<div className='drawer'>
+							<input
+								id='my-drawer'
+								type='checkbox'
+								className='drawer-toggle'
+							/>
+							<div className='drawer-content'>
+								<label
+									htmlFor='my-drawer'
+									className='drawer-button'>
+									<div
+										tabIndex={0}
+										role='button'
+										className='btn btn-ghost btn-circle'>
+										<svg
+											xmlns='http://www.w3.org/2000/svg'
+											className='h-5 w-5'
+											fill='none'
+											viewBox='0 0 24 24'
+											stroke='currentColor'>
+											<path
+												strokeLinecap='round'
+												strokeLinejoin='round'
+												strokeWidth='2'
+												d='M4 6h16M4 12h16M4 18h7'
+											/>
+										</svg>
+									</div>
+								</label>
 							</div>
-							<div
-								tabIndex={0}
-								className='menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow'>
-								<Navigation layout='column' />
+							<div className='drawer-side'>
+								<label
+									htmlFor='my-drawer'
+									aria-label='close sidebar'
+									className='drawer-overlay'></label>
+								<div className='menu bg-base-200 text-base-content min-h-full w-80 p-4'>
+									<Navigation layout='column' />
+								</div>
 							</div>
 						</div>
 					</div>
