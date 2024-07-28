@@ -10,7 +10,7 @@ const Menu = () => {
 
 	useEffect(() => {
 		axios
-			.get('http://localhost:3001/dishes')
+			.get('http://localhost:8000/dishes')
 			.then(res => {
 				setDishes(res.data);
 			})

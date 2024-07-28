@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export const getStaticPaths = async () => {
-	const res = await axios.get('http://localhost:3001/dishes');
+	const res = await axios.get('http://localhost:8000/dishes');
 	const dishes = res.data;
 
 	const paths = dishes.map(dish => ({
@@ -15,7 +15,7 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async ({ params }) => {
-	const res = await axios.get(`http://localhost:3001/dishes/${params.id}`);
+	const res = await axios.get(`http://localhost:8000/dishes/${params.id}`);
 	const dish = res.data;
 
 	return { props: { dish } };
