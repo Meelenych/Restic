@@ -58,7 +58,7 @@ const BookConfirmation = () => {
 				</div>
 				<Link
 					href='/'
-					className='mt-3 hover:animate-pulse-glow bg-red-500 text-white text-center py-2 px-4 rounded-xl w-full md:w-96 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition ease-in duration-300'>
+					className='mt-3 hover:animate-pulse-glow bg-red-500 hover:animate-pulse-glow-red text-white text-center py-2 px-4 rounded-xl w-full md:w-96 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition ease-in duration-300'>
 					Return to Homepage
 				</Link>
 			</div>
