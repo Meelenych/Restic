@@ -45,19 +45,11 @@ const Header = () => {
 									/>
 								</svg>
 							</div>
-							<ul
+							<div
 								tabIndex={0}
 								className='menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow'>
-								<li>
-									<a>Homepage</a>
-								</li>
-								<li>
-									<a>Portfolio</a>
-								</li>
-								<li>
-									<a>About</a>
-								</li>
-							</ul>
+								<Navigation layout='column' />
+							</div>
 						</div>
 					</div>
 					<div className='hidden md:block w-full'>
