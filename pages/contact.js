@@ -4,9 +4,9 @@ import GoogleMap from '../components/GoogleMap';
 const Contact = () => {
 	return (
 		<Layout>
+			<h1 className='text-2xl p-5'>Find us here</h1>
 			<GoogleMap />
 			<div className='p-5'>
-				<h1 className='text-2xl'>Contact us</h1>
 				<p>Our address:</p>
 				<address>1250 Main St., Chicago, 60007 IL, USA</address>
 				<p>

@@ -6,11 +6,11 @@ const GoogleMap = () => {
 	const mapUrl = `https://www.google.com/maps?q=${latitude},${longitude}&output=embed`;
 
 	return (
-		<div className='flex justify-center items-center h-fit'>
+		<div className='flex justify-center items-center w-full'>
 			<iframe
 				src={mapUrl}
-				width='600'
-				height='450'
+				width='100%'
+				height='400'
 				style={{ border: 0 }}
 				allowFullScreen=''
 				loading='lazy'></iframe>
