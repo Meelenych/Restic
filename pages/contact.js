@@ -94,7 +94,7 @@ const Contact = () => {
 				</div>
 				<div className='p-5'>
 					<form
-						id='booking-form'
+						id='message-form'
 						onSubmit={handleSubmit}
 						className='space-y-4 text-emerald-300'>
 						<div className='grid grid-cols-1 md:grid-cols-2 gap-3'>
@@ -227,7 +227,7 @@ const Contact = () => {
 								<div className='modal-action'>
 									<button
 										type='submit'
-										form='booking-form'
+										form='message-form'
 										className='hover:animate-pulse-glow-indigo bg-indigo-500 text-white py-2 px-4 rounded-xl w-full md:w-96 mr-4 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition ease-in duration-300'>
 										Confirm
 									</button>

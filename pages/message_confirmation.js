@@ -50,7 +50,7 @@ const MessageConfirmation = () => {
 					</p>
 					<p>Email: {email}</p>
 					<p>Subject: {subject}</p>
-					<p>Special Instructions: {message}</p>
+					<p>Message: {message}</p>
 				</div>
 				<Link
 					href='/'
