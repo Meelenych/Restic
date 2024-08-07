@@ -3,6 +3,7 @@ import GoogleMap from '../components/GoogleMap';
 import IconSelector from '../helpers/IconSelector';
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 const Contact = () => {
@@ -59,39 +60,53 @@ const Contact = () => {
 			<h1 className='text-2xl p-5'>Find us here</h1>
 			<GoogleMap />
 			<div className='grid grid-cols-1 md:grid-cols-2'>
-				<div className='p-5'>
-					<div className='flex mb-4'>
-						<div className='mr-4'>
-							<IconSelector icon='pin' />
+				{/* Contact information */}
+				<div className='grid grid-cols-1 md:grid-cols-2'>
+					<div className='p-5'>
+						<div className='flex mb-4'>
+							<div className='mr-4'>
+								<IconSelector icon='pin' />
+							</div>
+							<div>
+								<p>Location:</p>
+								<address>1250 Main St., Chicago, 60007 IL, USA</address>
+							</div>
 						</div>
-						<div>
-							<p>Location:</p>
-							<address>1250 Main St., Chicago, 60007 IL, USA</address>
+						<div className='flex  mb-4'>
+							<div className='mr-4'>
+								<IconSelector icon='clock' />
+							</div>
+							<p>Open hours: Monday - Sunday: 12:00 PM - 11:00 PM</p>
+						</div>
+						<div className='flex  mb-4'>
+							<div className='mr-4'>
+								<IconSelector icon='phone' />
+							</div>
+							<p>
+								Phone: <a href='tel:+1234567890'> (123) 456-7890</a>
+							</p>
+						</div>
+						<div className='flex  mb-4'>
+							<div className='mr-4'>
+								<IconSelector icon='email' />
+							</div>
+							<p>
+								Email: <a href='mailto:admin@example.com'>admin@example.com</a>
+							</p>
 						</div>
 					</div>
-					<div className='flex  mb-4'>
-						<div className='mr-4'>
-							<IconSelector icon='clock' />
-						</div>
-						<p>Open hours: Monday - Sunday: 12:00 PM - 11:00 PM</p>
-					</div>
-					<div className='flex  mb-4'>
-						<div className='mr-4'>
-							<IconSelector icon='phone' />
-						</div>
-						<p>
-							Phone: <a href='tel:+1234567890'> (123) 456-7890</a>
-						</p>
-					</div>
-					<div className='flex  mb-4'>
-						<div className='mr-4'>
-							<IconSelector icon='email' />
-						</div>
-						<p>
-							Email: <a href='mailto:admin@example.com'>admin@example.com</a>
-						</p>
+					<div className='flex items-center justify-center'>
+						<Image
+							className='hidden md:block animate-jumpOut'
+							src={'webp/AmyWong.webp'}
+							alt={``}
+							width={100}
+							height={100}
+							unoptimized
+						/>
 					</div>
 				</div>
+				{/* Message form */}
 				<div className='p-5'>
 					<form
 						id='message-form'
@@ -190,6 +205,7 @@ const Contact = () => {
 								</div>
 							</div>
 						</div>
+						{/* Buttons */}
 						<div className='w-full flex justify-between flex-col md:flex-row'>
 							<button
 								type='button'
