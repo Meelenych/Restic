@@ -14,11 +14,11 @@ const Home = () => {
 					<div className='p-4 backdrop-blur-sm rounded-xl bg-black/30 mb-4'>
 						<h1 className='text-6xl font-bold'>
 							<span className='text-yellow-500'>Welcome to</span>{' '}
-							<span className='text-emerald-500'>Elzar's Fine Cuisine</span>
+							<span className='text-emerald-500'>Elzar&apos;s Fine Cuisine</span>
 						</h1>
 						<p className='text-2xl text-violet-500 script-italics'>
-							"Indulge in Culinary Delights: Where great Neptunian and Earthican food
-							are offered at ridiculous prices"
+							&quot;Indulge in Culinary Delights: Where great Neptunian and Earthican
+							food are offered at ridiculous prices&quot;
 						</p>
 					</div>
 					<div className='w-full md:w-1/2 lg:w-1/3 grid grid-cols-2 gap-4'>

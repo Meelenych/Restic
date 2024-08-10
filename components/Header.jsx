@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Navigation from './Navigation';
+import Image from 'next/image';
 import styles from '../styles/Header.module.css';
 
 const Header = () => {
@@ -113,9 +114,12 @@ const Header = () => {
 							role='button'
 							className='btn btn-ghost btn-circle avatar'>
 							<div className='w-10 rounded-full'>
-								<img
+								<Image
 									alt='Tailwind CSS Navbar component'
 									src='https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp'
+									height={100}
+									width={100}
+									unoptimized
 								/>
 							</div>
 						</div>

@@ -22,7 +22,9 @@ const Menu = () => {
 	return (
 		<Layout>
 			<div className='p-5'>
-				<h1 className='mb-5 text-xl font-semibold'>Elzar's Fine Cuisine Menu</h1>
+				<h1 className='mb-5 text-xl font-semibold'>
+					Elzar&apos;s Fine Cuisine Menu
+				</h1>
 				<ul className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-5'>
 					{dishes.map(dish => (
 						<li key={dish.id}>
