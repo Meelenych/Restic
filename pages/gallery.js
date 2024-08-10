@@ -4,6 +4,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Navigation, Pagination } from 'swiper/modules';
 import Layout from '../components/Layout';
+import Image from 'next/image';
 
 const Gallery = () => {
 	return (
@@ -23,31 +24,43 @@ const Gallery = () => {
 						pagination={{ clickable: true }}
 						className='w-[100%] md:w-[50%] rounded-box'>
 						<SwiperSlide>
-							<img
+							<Image
 								src='/webp/DJ_Robot.webp'
 								className='w-full'
 								alt='DJ Robot'
+								width={100}
+								height={100}
+								unoptimized
 							/>
 						</SwiperSlide>
 						<SwiperSlide>
-							<img
+							<Image
 								src='/webp/rest_bg.jpg'
 								className='w-full'
 								alt='Restaurant Background'
+								width={100}
+								height={100}
+								unoptimized
 							/>
 						</SwiperSlide>
 						<SwiperSlide>
-							<img
+							<Image
 								src='/webp/Table.jpg'
 								className='w-full'
 								alt='Table'
+								width={100}
+								height={100}
+								unoptimized
 							/>
 						</SwiperSlide>
 						<SwiperSlide>
-							<img
+							<Image
 								src='/webp/Table2.jpg'
 								className='w-full'
 								alt='Table 2'
+								width={100}
+								height={100}
+								unoptimized
 							/>
 						</SwiperSlide>
 					</Swiper>
