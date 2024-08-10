@@ -100,6 +100,7 @@ const Header = () => {
 							<div className='card-body'>
 								<span className='text-lg font-bold'>8 Items</span>
 								<span className='text-info'>Subtotal: $999</span>
+								{/* To do: idpage left side - cart right side */}
 								<div className='card-actions'>
 									<button className='btn btn-primary btn-block'>View cart</button>
 								</div>

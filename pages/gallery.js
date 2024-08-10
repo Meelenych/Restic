@@ -1,3 +1,8 @@
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import { Navigation, Pagination } from 'swiper/modules';
 import Layout from '../components/Layout';
 
 const Gallery = () => {
@@ -11,88 +16,41 @@ const Gallery = () => {
 					enjoy your meal.
 				</p>
 				<div className='flex justify-center'>
-					<div className='carousel w-[40%] rounded-box'>
-						<div
-							id='slide1'
-							className='carousel-item relative w-full'>
+					<Swiper
+						modules={[Navigation, Pagination]}
+						spaceBetween={30}
+						navigation
+						pagination={{ clickable: true }}
+						className='w-[40%] rounded-box'>
+						<SwiperSlide>
 							<img
 								src='/webp/DJ_Robot.webp'
 								className='w-full'
+								alt='DJ Robot'
 							/>
-							<div className='absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between'>
-								<a
-									href='#slide4'
-									className='btn btn-circle'>
-									❮
-								</a>
-								<a
-									href='#slide2'
-									className='btn btn-circle'>
-									❯
-								</a>
-							</div>
-						</div>
-						<div
-							id='slide2'
-							className='carousel-item relative w-full'>
+						</SwiperSlide>
+						<SwiperSlide>
 							<img
 								src='/webp/rest_bg.jpg'
 								className='w-full'
+								alt='Restaurant Background'
 							/>
-							<div className='absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between'>
-								<a
-									href='#slide1'
-									className='btn btn-circle'>
-									❮
-								</a>
-								<a
-									href='#slide3'
-									className='btn btn-circle'>
-									❯
-								</a>
-							</div>
-						</div>
-						<div
-							id='slide3'
-							className='carousel-item relative w-full'>
+						</SwiperSlide>
+						<SwiperSlide>
 							<img
 								src='/webp/Table.jpg'
 								className='w-full'
+								alt='Table'
 							/>
-							<div className='absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between'>
-								<a
-									href='#slide2'
-									className='btn btn-circle'>
-									❮
-								</a>
-								<a
-									href='#slide4'
-									className='btn btn-circle'>
-									❯
-								</a>
-							</div>
-						</div>
-						<div
-							id='slide4'
-							className='carousel-item relative w-full'>
+						</SwiperSlide>
+						<SwiperSlide>
 							<img
 								src='/webp/Table2.jpg'
 								className='w-full'
+								alt='Table 2'
 							/>
-							<div className='absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between'>
-								<a
-									href='#slide3'
-									className='btn btn-circle'>
-									❮
-								</a>
-								<a
-									href='#slide1'
-									className='btn btn-circle'>
-									❯
-								</a>
-							</div>
-						</div>
-					</div>
+						</SwiperSlide>
+					</Swiper>
 				</div>
 			</div>
 		</Layout>
