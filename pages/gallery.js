@@ -35,7 +35,7 @@ const Gallery = () => {
 						</SwiperSlide>
 						<SwiperSlide>
 							<Image
-								src='/webp/rest_bg.jpg'
+								src='/webp/rest_bg.JPG'
 								className='w-full'
 								alt='Restaurant Background'
 								width={100}
