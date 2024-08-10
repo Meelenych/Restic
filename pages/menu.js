@@ -5,19 +5,20 @@ import axios from 'axios';
 import Image from 'next/image';
 
 const Menu = () => {
-	const initialDishes = [];
-	const [dishes, setDishes] = useState(initialDishes);
+	const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+	const [dishes, setDishes] = useState([]);
 
 	useEffect(() => {
-		axios
-			.get('http://localhost:8000/dishes')
-			.then(res => {
+		const fetchDishes = async () => {
+			try {
+				const res = await axios.get(`${apiUrl}/dishes`);
 				setDishes(res.data);
-			})
-			.catch(error => {
+			} catch (error) {
 				console.error('Error fetching dishes:', error);
-			});
-	}, []);
+			}
+		};
+		fetchDishes();
+	}, [apiUrl]);
 
 	return (
 		<Layout>

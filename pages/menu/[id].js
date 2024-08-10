@@ -6,24 +6,38 @@ import Link from 'next/link';
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
 export const getStaticPaths = async () => {
-	const res = await axios.get(`${apiUrl}/dishes`);
-	const dishes = res.data;
+	try {
+		const res = await axios.get(`${apiUrl}/dishes`);
+		const dishes = res.data;
 
-	const paths = dishes.map(dish => ({
-		params: { id: dish.id.toString() },
-	}));
+		const paths = dishes.map(dish => ({
+			params: { id: dish.id.toString() },
+		}));
 
-	return { paths, fallback: false };
+		return { paths, fallback: false };
+	} catch (error) {
+		console.error('Error fetching dishes in getStaticPaths:', error);
+		return { paths: [], fallback: false }; // Handle errors by returning empty paths
+	}
 };
 
 export const getStaticProps = async ({ params }) => {
-	const res = await axios.get(`${apiUrl}/dishes/${params.id}`);
-	const dish = res.data;
+	try {
+		const res = await axios.get(`${apiUrl}/dishes/${params.id}`);
+		const dish = res.data;
 
-	return { props: { dish } };
+		return { props: { dish } };
+	} catch (error) {
+		console.error('Error fetching dish in getStaticProps:', error);
+		return { props: { dish: null } }; // Handle errors by returning null dish
+	}
 };
 
 const MenuItem = ({ dish }) => {
+	if (!dish) {
+		return <p>Dish not found</p>; // Handle case where dish data is not available
+	}
+
 	return (
 		<Layout>
 			<div className='p-5'>
@@ -39,8 +53,8 @@ const MenuItem = ({ dish }) => {
 				<Image
 					src={dish.image}
 					alt={dish.title}
-					width={400}
-					height={300}
+					width={100}
+					height={100}
 					unoptimized
 				/>
 				<p className='mt-4'>{dish.description}</p>
