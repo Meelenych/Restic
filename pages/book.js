@@ -1,6 +1,6 @@
 'use client';
 import Layout from '../components/Layout';
-import bgImgBook from '../assets/images/table.jpg';
+import bgImgBook from '../public/webp/Table.jpg';
 import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
