@@ -53,9 +53,10 @@ const MenuItem = ({ dish }) => {
 				<Image
 					src={dish.image}
 					alt={dish.title}
-					width={100}
-					height={100}
+					width={400}
+					height={400}
 					unoptimized
+					className='rounded-lg'
 				/>
 				<p className='mt-4'>{dish.description}</p>
 				<p className='mt-2 font-bold'>Price: ${dish.price}</p>
