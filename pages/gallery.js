@@ -21,7 +21,7 @@ const Gallery = () => {
 						spaceBetween={30}
 						navigation
 						pagination={{ clickable: true }}
-						className='w-[50%] rounded-box'>
+						className='w-[100%] md:w-[50%] rounded-box'>
 						<SwiperSlide>
 							<img
 								src='/webp/DJ_Robot.webp'
