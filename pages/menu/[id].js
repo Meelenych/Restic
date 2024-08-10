@@ -3,8 +3,10 @@ import axios from 'axios';
 import Image from 'next/image';
 import Link from 'next/link';
 
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+
 export const getStaticPaths = async () => {
-	const res = await axios.get('http://localhost:8000/dishes');
+	const res = await axios.get(`${apiUrl}/dishes`);
 	const dishes = res.data;
 
 	const paths = dishes.map(dish => ({
@@ -15,7 +17,7 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async ({ params }) => {
-	const res = await axios.get(`http://localhost:8000/dishes/${params.id}`);
+	const res = await axios.get(`${apiUrl}/dishes/${params.id}`);
 	const dish = res.data;
 
 	return { props: { dish } };
