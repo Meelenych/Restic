@@ -1,9 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
 import styles from '../styles/Navigation.module.css';
+import { useSelector } from 'react-redux';
 
 const Navigation = ({ layout = 'row' }) => {
 	const navClass = layout === 'row' ? styles['nav-row'] : styles['nav-column'];
+	const loggedIn = useSelector(state => state.auth.loggedIn);
 
 	return (
 		<nav className='w-full'>
@@ -33,11 +35,13 @@ const Navigation = ({ layout = 'row' }) => {
 						<span>Contact</span>
 					</Link>
 				</li>
-				<li className={styles['nav-item']}>
-					<Link href='/login'>
-						<span>Login</span>
-					</Link>
-				</li>
+				{!loggedIn && (
+					<li className={styles['nav-item']}>
+						<Link href='/login'>
+							<span>Login</span>
+						</Link>
+					</li>
+				)}
 			</ul>
 		</nav>
 	);
