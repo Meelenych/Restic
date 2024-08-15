@@ -3,7 +3,7 @@ import Navigation from './Navigation';
 import Image from 'next/image';
 import styles from '../styles/Header.module.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { logIn, logOut } from '../redux/auth/authSlice';
+import { logOut } from '../redux/auth/authSlice';
 
 const Header = () => {
 	const [isScrolled, setIsScrolled] = useState(false);
