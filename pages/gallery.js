@@ -17,120 +17,96 @@ const Gallery = () => {
 	return (
 		<Layout>
 			<div className='p-5'>
-				<h1>Our atmosphere</h1>
-				<p>
+				<h1 className='text-3xl text-center'>Our atmosphere</h1>
+				<p className='text-xl text-center p-4'>
 					Our restaurant is known for its warm ambiance, inviting and friendly
 					atmosphere. Our staff are friendly, attentive, and always ready to help you
 					enjoy your meal.
 				</p>
+				<div className='flex flex-col items-center'>
+					<div
+						role='tablist'
+						className='tabs tabs-lifted tabs-lg w-full md:w-1/2'>
+						<a
+							role='tab'
+							className={`tab ${activeTab === 1 ? 'tab-active' : ''}`}
+							onClick={() => handleTabClick(1)}
+							style={{ borderBottomColor: activeTab === 1 ? '' : 'transparent' }}>
+							Food
+						</a>
+						<a
+							role='tab'
+							className={`tab ${activeTab === 2 ? 'tab-active' : ''}`}
+							onClick={() => handleTabClick(2)}
+							style={{ borderBottomColor: activeTab === 2 ? '' : 'transparent' }}>
+							Ambience
+						</a>
+					</div>
 
-				<div
-					role='tablist'
-					className='tabs tabs-lifted'>
-					<a
-						role='tab'
-						className={`tab ${activeTab === 1 ? 'tab-active' : ''}`}
-						onClick={() => handleTabClick(1)}>
-						Food
-					</a>
-					<a
-						role='tab'
-						className={`tab ${activeTab === 2 ? 'tab-active' : ''}`}
-						onClick={() => handleTabClick(2)}>
-						Ambience
-					</a>
-				</div>
+					<div
+						className={`p-4 bg-base-100 w-full md:w-1/2 rounded-b-lg ${
+							activeTab === 1 ? 'rounded-tr-lg' : 'rounded-tl-lg'
+						}`}>
+						{activeTab === 1 && (
+							<Swiper
+								modules={[Navigation, Pagination]}
+								spaceBetween={30}
+								navigation
+								pagination={{ clickable: true }}
+								className='w-[100%] md:w-[100%] rounded-box'>
+								<SwiperSlide>
+									<Image
+										src='/webp/rest_bg.JPG'
+										className='w-full'
+										alt='Restaurant Background'
+										width={100}
+										height={100}
+										unoptimized
+									/>
+								</SwiperSlide>
+								<SwiperSlide>
+									<Image
+										src='/webp/Table.jpg'
+										className='w-full'
+										alt='Table'
+										width={100}
+										height={100}
+										unoptimized
+									/>
+								</SwiperSlide>
+							</Swiper>
+						)}
 
-				<div className='grid grid-cols-1 md:grid-cols-1 gap-4 mt-4'>
-					{activeTab === 1 && (
-						<Swiper
-							modules={[Navigation, Pagination]}
-							spaceBetween={30}
-							navigation
-							pagination={{ clickable: true }}
-							className='w-[100%] md:w-[100%] rounded-box'>
-							<SwiperSlide>
-								<Image
-									src='/webp/DJ_Robot.webp'
-									className='w-full'
-									alt='DJ Robot'
-									width={100}
-									height={100}
-									unoptimized
-								/>
-							</SwiperSlide>
-							<SwiperSlide>
-								<Image
-									src='/webp/rest_bg.JPG'
-									className='w-full'
-									alt='Restaurant Background'
-									width={100}
-									height={100}
-									unoptimized
-								/>
-							</SwiperSlide>
-							<SwiperSlide>
-								<Image
-									src='/webp/Table.jpg'
-									className='w-full'
-									alt='Table'
-									width={100}
-									height={100}
-									unoptimized
-								/>
-							</SwiperSlide>
-							<SwiperSlide>
-								<Image
-									src='/webp/Table2.jpg'
-									className='w-full'
-									alt='Table 2'
-									width={100}
-									height={100}
-									unoptimized
-								/>
-							</SwiperSlide>
-						</Swiper>
-					)}
-
-					{activeTab === 2 && (
-						<Swiper
-							modules={[Navigation, Pagination]}
-							spaceBetween={30}
-							navigation
-							pagination={{ clickable: true }}
-							className='w-[100%] md:w-[100%] rounded-box'>
-							<SwiperSlide>
-								<Image
-									src='/webp/rest_bg.JPG'
-									className='w-full'
-									alt='Restaurant Background'
-									width={100}
-									height={100}
-									unoptimized
-								/>
-							</SwiperSlide>
-							<SwiperSlide>
-								<Image
-									src='/webp/Table.jpg'
-									className='w-full'
-									alt='Table'
-									width={100}
-									height={100}
-									unoptimized
-								/>
-							</SwiperSlide>
-							<SwiperSlide>
-								<Image
-									src='/webp/Table2.jpg'
-									className='w-full'
-									alt='Table 2'
-									width={100}
-									height={100}
-									unoptimized
-								/>
-							</SwiperSlide>
-						</Swiper>
-					)}
+						{activeTab === 2 && (
+							<Swiper
+								modules={[Navigation, Pagination]}
+								spaceBetween={30}
+								navigation
+								pagination={{ clickable: true }}
+								className='w-[100%] md:w-[100%] rounded-box'>
+								<SwiperSlide>
+									<Image
+										src='/webp/Table.jpg'
+										className='w-full'
+										alt='Table'
+										width={100}
+										height={100}
+										unoptimized
+									/>
+								</SwiperSlide>
+								<SwiperSlide>
+									<Image
+										src='/webp/DJ_Robot.webp'
+										className='w-full'
+										alt='DJ Robot'
+										width={100}
+										height={100}
+										unoptimized
+									/>
+								</SwiperSlide>
+							</Swiper>
+						)}
+					</div>
 				</div>
 			</div>
 		</Layout>
