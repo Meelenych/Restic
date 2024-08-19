@@ -1,15 +1,21 @@
-import { openDb } from './db';
+const sqlite3 = require('sqlite3');
+const { open } = require('sqlite');
 
-export async function initializeDb() {
-	const db = await openDb();
+async function setup() {
+	const db = await open({
+		filename: './database.sqlite',
+		driver: sqlite3.Database,
+	});
 	await db.exec(`
 		CREATE TABLE IF NOT EXISTS dishes (
 			id INTEGER PRIMARY KEY AUTOINCREMENT,
 			title TEXT,
 			description TEXT,
 			image TEXT,
-			price REAL,  -- Changed to REAL for numerical calculations
+			price TEXT,
 			category TEXT
 		)
 	`);
 }
+
+setup().catch(error => console.error('Error initializing database:', error));

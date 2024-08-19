@@ -1,21 +1,19 @@
-import { openDb } from './db';
-import dishes from './dishes.json';
+const { open } = require('sqlite');
+const sqlite3 = require('sqlite3');
+const dishes = require('./dishes.json');
 
-async function populateDb() {
-	try {
-		const db = await openDb();
-
-		for (const dish of dishes) {
-			await db.run(
-				'INSERT INTO dishes (title, description, image, price, category) VALUES (?, ?, ?, ?, ?)',
-				[dish.title, dish.description, dish.image, dish.price, dish.category],
-			);
-		}
-
-		console.log('Dishes inserted successfully');
-	} catch (error) {
-		console.error('Error inserting dishes:', error);
+async function populate() {
+	const db = await open({
+		filename: './database.sqlite',
+		driver: sqlite3.Database,
+	});
+	for (const dish of dishes.dishes) {
+		await db.run(
+			'INSERT INTO dishes (title, description, image, price, category) VALUES (?, ?, ?, ?, ?)',
+			[dish.title, dish.description, dish.image, dish.price, dish.category],
+		);
 	}
+	console.log('DB populated successfully');
 }
 
-populateDb();
+populate().catch(error => console.error('Error populating database:', error));
