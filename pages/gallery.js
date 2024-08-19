@@ -31,14 +31,14 @@ const Gallery = () => {
 							role='tab'
 							className={`tab ${activeTab === 1 ? 'tab-active' : ''}`}
 							onClick={() => handleTabClick(1)}
-							style={{ borderBottomColor: activeTab === 1 ? '' : 'transparent' }}>
+							style={{ borderBottomColor: 'none' }}>
 							Food
 						</a>
 						<a
 							role='tab'
 							className={`tab ${activeTab === 2 ? 'tab-active' : ''}`}
 							onClick={() => handleTabClick(2)}
-							style={{ borderBottomColor: activeTab === 2 ? '' : 'transparent' }}>
+							style={{ borderBottomColor: 'none' }}>
 							Ambience
 						</a>
 					</div>
