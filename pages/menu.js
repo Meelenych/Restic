@@ -5,7 +5,7 @@ import axios from 'axios';
 import Image from 'next/image';
 
 const Menu = () => {
-	const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000'; // Fallback for local dev
+	const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000/api'; // Fallback for local dev
 	const [dishes, setDishes] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
