@@ -5,7 +5,7 @@ import axios from 'axios';
 import Image from 'next/image';
 
 const Menu = () => {
-	const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+	const apiUrl = process.env.NEXT_PUBLIC_API_URL || '/api';
 	const [dishes, setDishes] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
@@ -14,7 +14,7 @@ const Menu = () => {
 		const fetchDishes = async () => {
 			try {
 				setLoading(true);
-				const res = await axios.get(`${apiUrl}/menu`); // Ensure correct endpoint
+				const res = await axios.get(`${apiUrl}/menu`);
 				setDishes(res.data);
 				console.log(res.data);
 			} catch (error) {

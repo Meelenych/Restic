@@ -1,4 +1,4 @@
-import { openDb } from '../../db/openDb.js'; // Adjust based on your actual export/import
+import { openDb } from '../../db/openDb.js';
 
 export default async function handler(req, res) {
 	try {
