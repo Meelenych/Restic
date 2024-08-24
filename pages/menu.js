@@ -5,7 +5,7 @@ import axios from 'axios';
 import Image from 'next/image';
 
 const Menu = () => {
-	const apiUrl = process.env.NEXT_PUBLIC_API_URL || '/api';
+	const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 	const [dishes, setDishes] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
