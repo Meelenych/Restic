@@ -16,7 +16,7 @@ const Menu = () => {
 				setLoading(true);
 				const res = await axios.get(`${apiUrl}/menu`);
 				setDishes(res.data);
-				console.log(res.data);
+				console.log('menu dishes', res.data);
 			} catch (error) {
 				console.error('Error fetching dishes:', error);
 				setError('Failed to fetch dishes');

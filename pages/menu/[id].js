@@ -7,8 +7,13 @@ const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
 export const getStaticPaths = async () => {
 	try {
-		const res = await axios.get(`${apiUrl}/dishes`);
+		const res = await axios.get(`${apiUrl}/menu`);
 		const dishes = res.data;
+
+		if (!dishes) {
+			console.log('No dishes fetched');
+			return { paths: [], fallback: false };
+		}
 
 		const paths = dishes.map(dish => ({
 			params: { id: dish.id.toString() },
@@ -16,20 +21,25 @@ export const getStaticPaths = async () => {
 
 		return { paths, fallback: false };
 	} catch (error) {
-		console.error('Error fetching dishes in getStaticPaths:', error);
-		return { paths: [], fallback: false }; // Handle errors by returning empty paths
+		console.error('Error fetching dishes in getStaticPaths:', error.message);
+		return { paths: [], fallback: false };
 	}
 };
 
 export const getStaticProps = async ({ params }) => {
 	try {
-		const res = await axios.get(`${apiUrl}/dishes/${params.id}`);
+		const res = await axios.get(`${apiUrl}/menu/${params.id}`);
 		const dish = res.data;
+
+		if (!dish) {
+			console.log(`No dish found for id ${params.id}`);
+			return { props: { dish: null } };
+		}
 
 		return { props: { dish } };
 	} catch (error) {
-		console.error('Error fetching dish in getStaticProps:', error);
-		return { props: { dish: null } }; // Handle errors by returning null dish
+		console.error('Error fetching dish in getStaticProps:', error.message);
+		return { props: { dish: null } };
 	}
 };
 
