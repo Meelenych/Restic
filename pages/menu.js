@@ -29,6 +29,7 @@ const Menu = () => {
 
 	if (loading) return <p>Loading...</p>;
 	if (error) return <p>{error}</p>;
+	console.log('API URL:', process.env.NEXT_PUBLIC_API_URL);
 
 	return (
 		<Layout>

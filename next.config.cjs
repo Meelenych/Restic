@@ -4,5 +4,5 @@ const nextConfig = {
 		domains: ['localhost'], // Add your domain here
 	},
 };
-
+console.log(process.env.NEXT_PUBLIC_API_URL);
 export default nextConfig;
