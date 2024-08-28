@@ -1,8 +1,8 @@
-import { openDB } from '../../../db/openDb.js';
+import { openDb } from '../../../db/openDb';
 
 export default async function handler(req, res) {
 	const { id } = req.query;
-	const db = await openDB();
+	const db = await openDb();
 
 	try {
 		const dish = await db.get('SELECT * FROM dishes WHERE id = ?', [id]);
