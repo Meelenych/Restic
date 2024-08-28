@@ -3,7 +3,7 @@ import { open } from 'sqlite';
 
 export async function openDb() {
 	return open({
-		filename: './db/database.sqlite',
+		filename: './database.sqlite',
 		driver: sqlite3.Database,
 	});
 }
