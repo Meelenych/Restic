@@ -1,11 +1,10 @@
 import Layout from '../components/Layout';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import axios from 'axios';
 import Image from 'next/image';
+import supabase from '../db';
 
 const Menu = () => {
-	const apiUrl = process.env.NEXT_PUBLIC_API_URL || '/api';
 	const [dishes, setDishes] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
@@ -14,9 +13,9 @@ const Menu = () => {
 		const fetchDishes = async () => {
 			try {
 				setLoading(true);
-				const res = await axios.get(`${apiUrl}/menu`);
-				setDishes(res.data);
-				console.log('menu dishes', res.data);
+				const { data, error } = await supabase.from('menu').select('*');
+				if (error) throw error;
+				setDishes(data);
 			} catch (error) {
 				console.error('Error fetching dishes:', error);
 				setError('Failed to fetch dishes');
@@ -25,11 +24,10 @@ const Menu = () => {
 			}
 		};
 		fetchDishes();
-	}, [apiUrl]);
+	}, []);
 
 	if (loading) return <p>Loading...</p>;
 	if (error) return <p>{error}</p>;
-	console.log('API URL:', process.env.NEXT_PUBLIC_API_URL);
 
 	return (
 		<Layout>
