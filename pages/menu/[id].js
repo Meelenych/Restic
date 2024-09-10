@@ -21,6 +21,8 @@ const MenuItem = () => {
 				id: dish.id,
 				title: dish.title,
 				price: dish.price,
+				image: dish.image,
+				description: dish.description,
 				quantity: 1,
 			}),
 		);
