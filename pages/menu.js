@@ -21,6 +21,7 @@ const Menu = () => {
 				price: dish.price,
 				image: dish.image,
 				description: dish.description,
+				category: dish.category,
 				quantity: 1,
 			}),
 		);

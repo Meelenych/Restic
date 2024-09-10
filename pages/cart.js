@@ -16,20 +16,20 @@ const Cart = () => {
 				) : (
 					<table className='table'>
 						{/* head */}
-						<thead>
+						<thead className='text-white text-md'>
 							<tr>
 								<th>Dish Title</th>
-								<th>Description</th>
+								<th className='hidden md:block'>Description</th>
 								<th>Quantity</th>
 								<th>Price</th>
-								<th>Total</th>
+								<th>Sum</th>
 							</tr>
 						</thead>
 						<tbody>
 							{cartItems.map(item => (
 								<tr key={item.id}>
 									<td>
-										<div className='flex items-center gap-3'>
+										<div className='flex items-center gap-3 flex-col md:flex-row'>
 											<div className='avatar'>
 												<div className='mask mask-squircle h-12 w-12'>
 													<Image
@@ -47,7 +47,7 @@ const Cart = () => {
 											</div>
 										</div>
 									</td>
-									<td>{item.description}</td>
+									<td className='line-clamp-1 hidden md:block'>{item.description}</td>
 									<td>{item.quantity}</td>
 									<td>${item.price.toFixed(2)}</td>
 									<td>${(item.price * item.quantity).toFixed(2)}</td>
@@ -55,10 +55,11 @@ const Cart = () => {
 							))}
 						</tbody>
 						{/* foot */}
-						<tfoot>
+						<tfoot className='text-white text-lg'>
 							<tr>
-								<th colSpan='3'></th>
-								<th>Grand Total</th>
+								<th colSpan='2'></th>
+								<th className='hidden md:block'></th>
+								<th>Total</th>
 								<th>
 									$
 									{cartItems
