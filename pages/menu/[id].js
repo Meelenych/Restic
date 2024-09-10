@@ -4,12 +4,27 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addItem } from '../../redux/cart/cartSlice';
 
 const MenuItem = () => {
+	const dispatch = useDispatch();
 	const router = useRouter();
 	const { id } = router.query;
 	const [dish, setDish] = useState(null);
 	const [loading, setLoading] = useState(true);
+
+	const handleAddToCart = () => {
+		console.log('ordered from id page');
+		dispatch(
+			addItem({
+				id: dish.id,
+				title: dish.title,
+				price: dish.price,
+				quantity: 1,
+			}),
+		);
+	};
 
 	useEffect(() => {
 		if (id) {
@@ -61,7 +76,9 @@ const MenuItem = () => {
 				<p className='mt-4'>{dish.description}</p>
 				<p className='mt-2 font-bold'>Price: ${dish.price}</p>
 				<p className='mt-2'>Category: {dish.category}</p>
-				<button className='hover:animate-pulse-glow bg-indigo-500 text-white py-2 px-4 rounded-xl w-full md:w-96 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition ease-in duration-300'>
+				<button
+					onClick={handleAddToCart}
+					className='hover:animate-pulse-glow bg-indigo-500 text-white py-2 px-4 rounded-xl w-full md:w-96 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition ease-in duration-300'>
 					Order now!
 				</button>
 			</div>

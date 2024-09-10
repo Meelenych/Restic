@@ -16,10 +16,11 @@ const cart = () => {
 									/>
 								</label>
 							</th>
-							<th>Name</th>
-							<th>Job</th>
-							<th>Favorite Color</th>
-							<th></th>
+							<th>Dish title</th>
+							<th>Decription</th>
+							<th>Quantity</th>
+							<th>Price</th>
+							<th>Total</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -44,32 +45,26 @@ const cart = () => {
 										</div>
 									</div>
 									<div>
-										<div className='font-bold'>Hart Hagerty</div>
-										<div className='text-sm opacity-50'>United States</div>
+										<div className='font-bold'>Title</div>
+										<div className='text-sm opacity-50'>Type</div>
 									</div>
 								</div>
 							</td>
-							<td>
-								Zemlak, Daniel and Leannon
-								<br />
-								<span className='badge badge-ghost badge-sm'>
-									Desktop Support Technician
-								</span>
-							</td>
-							<td>Purple</td>
-							<th>
-								<button className='btn btn-ghost btn-xs'>details</button>
-							</th>
+							<td>Zemlak, Daniel and Leannon</td>
+							<td>2</td>
+							<th>4</th>
+							<th>8</th>
 						</tr>
 					</tbody>
 					{/* foot */}
 					<tfoot>
 						<tr>
 							<th></th>
-							<th>Name</th>
-							<th>Job</th>
-							<th>Favorite Color</th>
 							<th></th>
+							<th></th>
+							<th></th>
+							<th>Grand Total</th>
+							<th>500</th>
 						</tr>
 					</tfoot>
 				</table>

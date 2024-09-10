@@ -3,11 +3,26 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import supabase from '../db';
+import { useDispatch } from 'react-redux';
+import { addItem } from '../redux/cart/cartSlice';
 
 const Menu = () => {
 	const [dishes, setDishes] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
+	const dispatch = useDispatch();
+
+	const handleAddToCart = dish => {
+		console.log('ordered from menu page');
+		dispatch(
+			addItem({
+				id: dish.id,
+				title: dish.title,
+				price: dish.price,
+				quantity: 1,
+			}),
+		);
+	};
 
 	useEffect(() => {
 		const fetchDishes = async () => {
@@ -58,7 +73,9 @@ const Menu = () => {
 												className='hover:text-amber-500 py-2 w-full md:w-96 md:mr-4 mb-4 md:mb-0 focus:outline-none hover:underline transition ease-in duration-300'>
 												Learn more...
 											</Link>
-											<button className='hover:animate-pulse-glow bg-indigo-500 text-white py-2 px-4 rounded-xl w-full md:w-96 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition ease-in duration-300'>
+											<button
+												onClick={() => handleAddToCart(dish)}
+												className='hover:animate-pulse-glow bg-indigo-500 text-white py-2 px-4 rounded-xl w-full md:w-96 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition ease-in duration-300'>
 												Order now!
 											</button>
 										</div>
