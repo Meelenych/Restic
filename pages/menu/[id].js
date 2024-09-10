@@ -8,7 +8,7 @@ import { useRouter } from 'next/router';
 const getItemId = () => {
 	const router = useRouter();
 	console.log(router);
-	const { id } = router.query; // Retrieves 'id' from the URL path
+	const { id } = router.query;
 	console.log(id);
 	return id;
 };
