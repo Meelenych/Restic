@@ -31,7 +31,6 @@ const MenuItem = () => {
 					setLoading(false);
 				}
 			};
-
 			fetchDish();
 		}
 	}, [id]);
