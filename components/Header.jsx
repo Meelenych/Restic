@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Navigation from './Navigation';
 import Image from 'next/image';
+import Link from 'next/link';
 import styles from '../styles/Header.module.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { logOut } from '../redux/auth/authSlice';
@@ -112,7 +113,11 @@ const Header = () => {
 									<span className='text-info'>Subtotal: $999</span>
 									{/* To do: idpage left side - cart right side */}
 									<div className='card-actions'>
-										<button className='btn btn-primary btn-block'>View cart</button>
+										<Link
+											href='/cart'
+											className='btn btn-primary btn-block'>
+											View cart
+										</Link>
 									</div>
 								</div>
 							</div>
