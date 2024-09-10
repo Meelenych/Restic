@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useSelector } from 'react-redux';
 import Layout from '../components/Layout';
 
@@ -18,7 +19,7 @@ const Cart = () => {
 
 	return (
 		<Layout>
-			<div className='overflow-x-auto'>
+			<div className='overflow-x-auto p-1 md:p-8 lg:p-16'>
 				{cartItems.length === 0 ? (
 					<p>Your cart is empty.</p>
 				) : (
@@ -78,12 +79,19 @@ const Cart = () => {
 								</tr>
 							</tfoot>
 						</table>
-						<button
-							type='button'
-							onClick={showModal}
-							className='hover:animate-pulse-glow-indigo bg-indigo-500 text-white py-2 px-4 rounded-xl w-full md:w-96 md:mr-4 mb-4 md:mb-0 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition ease-in duration-300'>
-							Confirm order
-						</button>
+						<div className='flex justify-center flex-wrap'>
+							<button
+								type='button'
+								onClick={showModal}
+								className='hover:animate-pulse-glow-indigo bg-indigo-500 text-white py-2 px-4 rounded-xl w-full md:w-96 md:mr-4 mb-4 md:mb-0 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition ease-in duration-300'>
+								Confirm order
+							</button>
+							<Link
+								href='/'
+								className='hover:animate-pulse-glow-red bg-red-500 text-white text-center py-2 px-4 rounded-xl w-full md:w-96 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition ease-in duration-300'>
+								Cancel
+							</Link>
+						</div>
 						{/* Modal */}
 						<dialog
 							id='booking_modal'
