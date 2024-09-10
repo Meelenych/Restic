@@ -38,7 +38,7 @@ const Cart = () => {
 								{cartItems.map(item => (
 									<tr key={item.id}>
 										<td>
-											<div className='flex items-center gap-3 flex-col md:flex-row'>
+											<div className='flex items-start gap-3 flex-col md:flex-row'>
 												<div className='avatar'>
 													<div className='mask mask-squircle h-12 w-12'>
 														<Image
