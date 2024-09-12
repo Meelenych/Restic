@@ -5,7 +5,7 @@ import Link from 'next/link';
 import styles from '../styles/Header.module.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { logOut } from '../redux/auth/authSlice';
-import jwtDecode from 'jwt-decode';
+import { jwtDecode } from 'jwt-decode';
 
 const Header = () => {
 	const [isScrolled, setIsScrolled] = useState(false);
@@ -19,7 +19,8 @@ const Header = () => {
 		if (token) {
 			try {
 				const decoded = jwtDecode(token);
-				setUsername(decoded.login || 'User'); // Adjust based on your token's structure
+				console.log('decoded', decoded);
+				setUsername(decoded.login || 'User');
 			} catch (error) {
 				console.error('Error decoding token:', error);
 			}
