@@ -5,6 +5,7 @@ import Image from 'next/image';
 import supabase from '../db';
 import { useDispatch } from 'react-redux';
 import { addItem } from '../redux/cart/cartSlice';
+import toast from 'react-hot-toast';
 
 const Menu = () => {
 	const [dishes, setDishes] = useState([]);
@@ -13,7 +14,7 @@ const Menu = () => {
 	const dispatch = useDispatch();
 
 	const handleAddToCart = dish => {
-		console.log('ordered from menu page');
+		toast.success(`${dish.title} added to cart`);
 		dispatch(
 			addItem({
 				id: dish.id,

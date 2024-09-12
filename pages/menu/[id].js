@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addItem } from '../../redux/cart/cartSlice';
+import toast from 'react-hot-toast';
 
 const MenuItem = () => {
 	const dispatch = useDispatch();
@@ -15,7 +16,7 @@ const MenuItem = () => {
 	const [loading, setLoading] = useState(true);
 
 	const handleAddToCart = () => {
-		console.log('ordered from id page');
+		toast.success(`${dish.title} added to cart`);
 		dispatch(
 			addItem({
 				id: dish.id,
