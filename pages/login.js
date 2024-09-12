@@ -5,23 +5,17 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useSelector, useDispatch } from 'react-redux';
 import { logIn } from '../redux/auth/authSlice';
+import toast from 'react-hot-toast';
 
 const Login = () => {
 	const initialState = {
 		login: '',
 		password: '',
 	};
-
 	const dispatch = useDispatch();
 	const loggedIn = useSelector(state => state.auth.loggedIn);
-
-	const handleLogin = () => {
-		dispatch(logIn());
-	};
-
-	const [formData, setFormData] = useState(initialState);
 	const router = useRouter();
-
+	const [formData, setFormData] = useState(initialState);
 	const { login, password } = formData;
 
 	const handleChange = e => {
@@ -32,23 +26,49 @@ const Login = () => {
 		});
 	};
 
+	const handleLogin = async () => {
+		console.log('handleLogin');
+		try {
+			const response = await fetch('/api/login', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({ login, password }),
+			});
+
+			const data = await response.json();
+			console.log('data', data);
+
+			if (response.ok) {
+				toast.success('Login successful');
+				// Store the token in localStorage
+				localStorage.setItem('token', data.token);
+				// Dispatch the login action with the token
+				dispatch(logIn(data.token));
+				console.log(data.token);
+				// Redirect to the home page or dashboard
+				router.push('/');
+			} else {
+				toast.error(data.message || 'Login failed');
+			}
+		} catch (error) {
+			console.error('Error during login:', error);
+			toast.error('An error occurred during login');
+		}
+	};
+
 	const handleSubmit = e => {
 		e.preventDefault();
-		// Handle form submission logic here (e.g., send data to server)
 		console.log('formData', formData);
 		handleLogin();
-		clearForm();
-
-		// Redirect to confirmation page with form data as query parameters
-		router.push({
-			pathname: '/',
-			query: formData,
-		});
+		// clearForm();
 	};
 
 	const clearForm = () => {
 		setFormData(initialState);
 	};
+
 	return (
 		<Layout>
 			<div className='p-5 grid grid-cols-1 md:grid-cols-2 w-full'>
@@ -63,9 +83,7 @@ const Login = () => {
 					/>
 				</div>
 				{!loggedIn ? (
-					<div
-						className='p-1 md:p-8 lg:p-16 flex
-          flex-col items-center md:items-start justify-start'>
+					<div className='p-1 md:p-8 lg:p-16 flex flex-col items-center md:items-start justify-start'>
 						<div className='w-full md:w-94 xl:w-96'>
 							<h1 className='text-2xl font-bold mb-4 text-indigo-600'>Log in here</h1>
 							<form
@@ -76,7 +94,7 @@ const Login = () => {
 									{/* Login */}
 									<div className='flex flex-wrap border border-emerald-200 rounded-xl p-3 w-full mb-3 backdrop-blur-sm bg-black/30'>
 										<p className='w-full mb-3 font-semibold'>Please log in</p>
-										{/*Login */}
+										{/* Login */}
 										<div className='w-full px-2 mb-4'>
 											<label
 												htmlFor='login'
@@ -93,7 +111,7 @@ const Login = () => {
 												className='px-2 py-1 mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50'
 											/>
 										</div>
-										{/* Pssword */}
+										{/* Password */}
 										<div className='w-full px-2 mb-4'>
 											<label
 												htmlFor='password'
@@ -116,7 +134,7 @@ const Login = () => {
 									<button
 										type='button'
 										onClick={() => clearForm()}
-										className='hover:animate-pulse-glow-amber bg-amber-500 text-white py-2 px-4 rounded-xl w-full  xl:w-96 mb-4 hover:bg-amber-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition ease-in duration-300'>
+										className='hover:animate-pulse-glow-amber bg-amber-500 text-white py-2 px-4 rounded-xl w-full xl:w-96 mb-4 hover:bg-amber-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition ease-in duration-300'>
 										Clear form
 									</button>
 									<button
