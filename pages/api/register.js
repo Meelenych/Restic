@@ -17,13 +17,17 @@ export default async function handler(req, res) {
 
 	try {
 		// Check if the user already exists
-		const { data: existingUser, error: userError } = await supabase
+		const { data: existingUsers, error: userError } = await supabase
 			.from('users')
 			.select('*')
-			.eq('email', email)
-			.single();
+			.eq('email', email);
 
-		if (existingUser) {
+		if (userError) {
+			console.error('Error checking user existence:', userError);
+			return res.status(500).json({ message: 'Error checking user existence' });
+		}
+
+		if (existingUsers.length > 0) {
 			return res.status(400).json({ message: 'User already exists' });
 		}
 
@@ -35,12 +39,20 @@ export default async function handler(req, res) {
 		const { data: newUser, error: insertError } = await supabase
 			.from('users')
 			.insert([{ email, password: hashedPassword }])
+			.select()
 			.single();
 
+		console.log('newUser:', newUser);
+		console.error('insertError:', insertError);
+
 		if (insertError) {
-			return res
-				.status(500)
-				.json({ message: 'Error creating user', error: insertError });
+			console.error('Error creating user:', insertError);
+			return res.status(500).json({ message: 'Error creating user' });
+		}
+
+		if (!newUser) {
+			console.error('User creation returned no data:', newUser);
+			return res.status(500).json({ message: 'Error creating user' });
 		}
 
 		// Generate JWT token
