@@ -19,7 +19,7 @@ const Header = () => {
 		if (token) {
 			try {
 				const decoded = jwtDecode(token);
-				setUsername(decoded.username || decoded.login || 'User'); // Adjust based on your token's structure
+				setUsername(decoded.login || 'User'); // Adjust based on your token's structure
 			} catch (error) {
 				console.error('Error decoding token:', error);
 			}

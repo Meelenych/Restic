@@ -11,8 +11,8 @@ export default async function handler(req, res) {
 
 	const { first, last, email, phone, login, password } = req.body;
 
-	if (!email || !password) {
-		return res.status(400).json({ message: 'Email and password are required' });
+	if (!login || !password) {
+		return res.status(400).json({ message: 'Login and password are required' });
 	}
 
 	try {
@@ -20,7 +20,7 @@ export default async function handler(req, res) {
 		const { data: existingUsers, error: userError } = await supabase
 			.from('users')
 			.select('*')
-			.eq('email', email);
+			.eq('login', login);
 
 		if (userError) {
 			console.error('Error checking user existence:', userError);
@@ -65,7 +65,7 @@ export default async function handler(req, res) {
 		}
 
 		// Generate JWT token
-		const token = jwt.sign({ id: newUser.id, email: newUser.email }, JWT_SECRET, {
+		const token = jwt.sign({ id: newUser.id, login: newUser.login }, JWT_SECRET, {
 			expiresIn: '1h',
 		});
 
