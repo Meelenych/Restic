@@ -15,6 +15,8 @@ const Register = () => {
 	};
 
 	const [formData, setFormData] = useState(initialState);
+	const [error, setError] = useState(null);
+	const [success, setSuccess] = useState(null);
 	const router = useRouter();
 
 	const { first, last, email, phone, login, password } = formData;
@@ -27,22 +29,44 @@ const Register = () => {
 		});
 	};
 
-	const handleSubmit = e => {
+	const handleSubmit = async e => {
 		e.preventDefault();
-		// Handle form submission logic here (e.g., send data to server)
-		console.log('formData', formData);
-		clearForm();
 
-		// Redirect to confirmation page with form data as query parameters
-		router.push({
-			pathname: '/',
-			query: formData,
-		});
+		try {
+			const response = await fetch('/api/register', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({
+					email,
+					password,
+				}),
+			});
+
+			const data = await response.json();
+
+			if (response.ok) {
+				setSuccess('User registered successfully');
+				// Optionally, you might want to store the token in localStorage or sessionStorage
+				localStorage.setItem('token', data.token);
+				// Redirect to login page or dashboard
+				router.push('/login');
+			} else {
+				setError(data.message || 'Registration failed');
+			}
+		} catch (error) {
+			console.error('Error:', error);
+			setError('An error occurred during registration');
+		}
 	};
 
 	const clearForm = () => {
 		setFormData(initialState);
+		setError(null);
+		setSuccess(null);
 	};
+
 	return (
 		<Layout>
 			<div className='p-5 grid grid-cols-1 md:grid-cols-2 w-full overflow-y-scroll'>
@@ -65,11 +89,14 @@ const Register = () => {
 							id='booking-form'
 							onSubmit={handleSubmit}
 							className='space-y-4 text-emerald-300'>
+							{/* Error and success messages */}
+							{error && <p className='text-red-500'>{error}</p>}
+							{success && <p className='text-green-500'>{success}</p>}
 							<div className='grid grid-cols-1'>
 								{/* Register */}
 								<div className='flex flex-wrap border border-emerald-200 rounded-xl p-3 w-full mb-3 backdrop-blur-sm bg-black/30'>
 									<p className='w-full mb-3 font-semibold'>Create your account</p>
-									{/*Login */}
+									{/* Login */}
 									<div className='w-full px-2 mb-4'>
 										<label
 											htmlFor='login'
@@ -86,7 +113,7 @@ const Register = () => {
 											className='px-2 py-1 mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50'
 										/>
 									</div>
-									{/* Pssword */}
+									{/* Password */}
 									<div className='w-full px-2 mb-4'>
 										<label
 											htmlFor='password'

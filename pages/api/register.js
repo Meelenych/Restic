@@ -9,7 +9,7 @@ export default async function handler(req, res) {
 		return res.status(405).json({ message: 'Method not allowed' });
 	}
 
-	const { email, password } = req.body;
+	const { first, last, email, phone, login, password } = req.body;
 
 	if (!email || !password) {
 		return res.status(400).json({ message: 'Email and password are required' });
@@ -38,7 +38,16 @@ export default async function handler(req, res) {
 		// Save the user to the database
 		const { data: newUser, error: insertError } = await supabase
 			.from('users')
-			.insert([{ email, password: hashedPassword }])
+			.insert([
+				{
+					email,
+					password: hashedPassword,
+					first,
+					last,
+					phone,
+					login,
+				},
+			])
 			.select()
 			.single();
 
