@@ -1,13 +1,17 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Layout from '../components/Layout';
+import { clearCart } from '../redux/cart/cartSlice';
 
 const Cart = () => {
 	// Get the cart items from the Redux store
 	const cartItems = useSelector(state => state.cart.items);
 	console.log('cartItems', cartItems);
+	const dispatch = useDispatch();
+
+	const emptyCart = () => dispatch(clearCart());
 
 	const showModal = () => {
 		document.getElementById('booking_modal').showModal();
@@ -79,16 +83,22 @@ const Cart = () => {
 								</tr>
 							</tfoot>
 						</table>
-						<div className='flex justify-center flex-wrap'>
+						<div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
 							<button
 								type='button'
 								onClick={showModal}
-								className='hover:animate-pulse-glow-indigo bg-indigo-500 text-white py-2 px-4 rounded-xl w-full md:w-96 md:mr-4 mb-4 md:mb-0 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition ease-in duration-300'>
+								className='hover:animate-pulse-glow-indigo bg-indigo-500 text-white py-2 px-4 rounded-xl w-full  md:w-60 lg:w-full md:mr-4 mb-4 md:mb-0 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition ease-in duration-300'>
 								Confirm order
+							</button>
+							<button
+								type='button'
+								onClick={() => emptyCart()}
+								className='hover:animate-pulse-glow-amber bg-amber-500 text-white py-2 px-4 rounded-xl w-full  md:w-60 lg:w-full md:mr-4 mb-4 md:mb-0 hover:bg-amber-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition ease-in duration-300'>
+								Empty cart
 							</button>
 							<Link
 								href='/'
-								className='hover:animate-pulse-glow-red bg-red-500 text-white text-center py-2 px-4 rounded-xl w-full md:w-96 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition ease-in duration-300'>
+								className='hover:animate-pulse-glow-red bg-red-500 text-white text-center py-2 px-4 rounded-xl w-full  md:w-60 lg:w-full hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition ease-in duration-300'>
 								Cancel
 							</Link>
 						</div>
