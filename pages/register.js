@@ -1,8 +1,9 @@
-import Layout from '../components/Layout';
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useRouter } from 'next/router';
+import Layout from '../components/Layout';
+import toast from 'react-hot-toast';
 
 const Register = () => {
 	const initialState = {
@@ -15,8 +16,6 @@ const Register = () => {
 	};
 
 	const [formData, setFormData] = useState(initialState);
-	const [error, setError] = useState(null);
-	const [success, setSuccess] = useState(null);
 	const router = useRouter();
 
 	const { first, last, email, phone, login, password } = formData;
@@ -39,36 +38,35 @@ const Register = () => {
 					'Content-Type': 'application/json',
 				},
 				body: JSON.stringify({
-					email,
-					password,
 					first,
 					last,
+					email,
 					phone,
 					login,
+					password,
 				}),
 			});
 
 			const data = await response.json();
 
 			if (response.ok) {
-				setSuccess('User registered successfully');
-				// Optionally, you might want to store the token in localStorage or sessionStorage
+				toast.success('Registration successful');
+				// Store the token in localStorage
 				localStorage.setItem('token', data.token);
-				// Redirect to login page or dashboard
+				// Redirect to login page
 				router.push('/login');
 			} else {
-				setError(data.message || 'Registration failed');
+				toast.error('Registration failed, user already exists');
+				console.error('Registration failed:', data.message);
 			}
 		} catch (error) {
 			console.error('Error:', error);
-			setError('An error occurred during registration');
+			toast.error('An error occurred during registration');
 		}
 	};
 
 	const clearForm = () => {
 		setFormData(initialState);
-		setError(null);
-		setSuccess(null);
 	};
 
 	return (
@@ -93,9 +91,6 @@ const Register = () => {
 							id='booking-form'
 							onSubmit={handleSubmit}
 							className='space-y-4 text-emerald-300'>
-							{/* Error and success messages */}
-							{error && <p className='text-red-500'>{error}</p>}
-							{success && <p className='text-green-500'>{success}</p>}
 							<div className='grid grid-cols-1'>
 								{/* Register */}
 								<div className='flex flex-wrap border border-emerald-200 rounded-xl p-3 w-full mb-3 backdrop-blur-sm bg-black/30'>
