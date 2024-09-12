@@ -5,13 +5,26 @@ import Link from 'next/link';
 import styles from '../styles/Header.module.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { logOut } from '../redux/auth/authSlice';
+import jwtDecode from 'jwt-decode';
 
 const Header = () => {
 	const [isScrolled, setIsScrolled] = useState(false);
 	const dispatch = useDispatch();
 	const loggedIn = useSelector(state => state.auth.loggedIn);
-
+	const token = useSelector(state => state.auth.token);
 	const cartItems = useSelector(state => state.cart.items);
+	const [username, setUsername] = useState('');
+
+	useEffect(() => {
+		if (token) {
+			try {
+				const decoded = jwtDecode(token);
+				setUsername(decoded.username || decoded.login || 'User'); // Adjust based on your token's structure
+			} catch (error) {
+				console.error('Error decoding token:', error);
+			}
+		}
+	}, [token]);
 
 	const handleLogout = () => {
 		dispatch(logOut());
@@ -150,6 +163,9 @@ const Header = () => {
 							<ul
 								tabIndex={0}
 								className='menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow'>
+								<li>
+									<p>Welcome {username}!</p>
+								</li>
 								<li>
 									<a className='justify-between'>
 										Profile
