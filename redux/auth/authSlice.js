@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { jwtDecode } from 'jwt-decode';
 
 const initialState = {
 	loggedIn: false,
@@ -13,7 +14,7 @@ const authSlice = createSlice({
 		logIn: (state, action) => {
 			state.loggedIn = true;
 			state.token = action.payload; // Store the token when logging in
-			state.user = action.payload.user;
+			state.user = jwtDecode(action.payload.token);
 		},
 		logOut: state => {
 			state.loggedIn = false;

@@ -28,6 +28,7 @@ const Header = () => {
 	}, [token]);
 
 	const handleLogout = () => {
+		localStorage.removeItem('authToken'); // Clear token from localStorage
 		dispatch(logOut());
 	};
 
