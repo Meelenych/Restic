@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useDispatch, useSelector } from 'react-redux';
 import Layout from '../components/Layout';
 import { clearCart } from '../redux/cart/cartSlice';
+import withAuth from '../components/hoc/withAuth';
 
 const Cart = () => {
 	// Get the cart items from the Redux store
@@ -171,4 +172,4 @@ const Cart = () => {
 	);
 };
 
-export default Cart;
+export default withAuth(Cart);

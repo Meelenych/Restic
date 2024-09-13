@@ -48,7 +48,7 @@ const Login = () => {
 				dispatch(logIn(data.token));
 				console.log(data.token);
 				// Redirect to the home page or dashboard
-				router.push('/');
+				router.push('/dashboard');
 			} else {
 				toast.error(data.message || 'Login failed');
 			}
