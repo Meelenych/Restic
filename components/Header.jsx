@@ -138,7 +138,7 @@ const Header = () => {
 									{/* To do: idpage left side - cart right side */}
 									<div className='card-actions'>
 										<Link
-											href='/cart'
+											href='/cartPage'
 											className='btn btn-primary btn-block'>
 											View cart
 										</Link>

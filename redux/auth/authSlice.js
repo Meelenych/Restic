@@ -14,7 +14,15 @@ const authSlice = createSlice({
 		logIn: (state, action) => {
 			state.loggedIn = true;
 			state.token = action.payload; // Store the token when logging in
-			state.user = jwtDecode(action.payload.token);
+			try {
+				state.user =
+					typeof action.payload.token === 'string'
+						? jwtDecode(action.payload.token)
+						: null;
+			} catch (error) {
+				console.error('Error decoding token:', error);
+				state.user = null;
+			}
 		},
 		logOut: state => {
 			state.loggedIn = false;
