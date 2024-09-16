@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 const withAuth = WrappedComponent => {
 	const AuthComponent = props => {
 		const router = useRouter();
-		const isAuthenticated = useSelector(state => state.auth.loggedIn); // Adjust based on your state shape
+		const isAuthenticated = useSelector(state => state.auth.loggedIn);
 
 		useEffect(() => {
 			if (!isAuthenticated) {
