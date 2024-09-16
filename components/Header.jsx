@@ -169,13 +169,10 @@ const Header = () => {
 									<p>Welcome {username}!</p>
 								</li>
 								<li>
-									<a className='justify-between'>
-										Profile
-										<span className='badge'>New</span>
-									</a>
+									<Link href='/dashboard'>Dashboard</Link>
 								</li>
 								<li>
-									<a>Settings</a>
+									<Link href='/settings'>Settings</Link>
 								</li>
 								<li>
 									<button onClick={handleLogout}>Logout</button>
