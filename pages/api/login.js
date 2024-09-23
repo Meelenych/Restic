@@ -20,7 +20,7 @@ export default async function handler(req, res) {
 	try {
 		// Retrieve user from the database
 		const user = await getUserByLogin(login);
-
+		console.log('Retrieved user:', user);
 		if (!user) {
 			return res.status(401).json({ message: 'Invalid login or password' });
 		}
@@ -34,7 +34,7 @@ export default async function handler(req, res) {
 
 		// Generate JWT token
 		const token = jwt.sign(
-			{ id: user.id, login: user.login }, // Payload
+			{ id: user.user_id, login: user.login }, // Payload
 			JWT_SECRET,
 			{ expiresIn: '1h' }, // Token expires in 1 hour
 		);

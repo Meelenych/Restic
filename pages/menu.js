@@ -30,6 +30,7 @@ const Menu = () => {
 		const token = localStorage.getItem('token');
 		const user = jwtDecode(token);
 		console.log('user', user);
+		console.log('User ID:', user.id);
 		const response = await fetch('/api/cart/add', {
 			method: 'POST',
 			headers: {
