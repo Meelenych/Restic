@@ -6,6 +6,7 @@ import supabase from '../db';
 import { useDispatch } from 'react-redux';
 import { addItem } from '../redux/cart/cartSlice';
 import toast from 'react-hot-toast';
+import { jwtDecode } from 'jwt-decode';
 
 const Menu = () => {
 	const [dishes, setDishes] = useState([]);
@@ -13,7 +14,7 @@ const Menu = () => {
 	const [error, setError] = useState(null);
 	const dispatch = useDispatch();
 
-	const handleAddToCart = dish => {
+	const handleAddToCart = async dish => {
 		toast.success(`${dish.title} added to cart`);
 		dispatch(
 			addItem({
@@ -26,6 +27,23 @@ const Menu = () => {
 				quantity: 1,
 			}),
 		);
+		const token = localStorage.getItem('token');
+		const user = jwtDecode(token);
+		console.log('user', user);
+		const response = await fetch('/api/cart/add', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({
+				user_id: user.id,
+				menu_item_id: dish.id,
+				quantity: 1,
+			}),
+		});
+
+		const data = await response.json();
+		console.log(data);
 	};
 
 	useEffect(() => {
