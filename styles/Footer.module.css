@@ -1,0 +1,65 @@
+.icon {
+  padding: 12px;
+  position: relative;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  flex-direction: column;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.icon:hover {
+  background-color: #264447;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.icon:hover .twitter {
+  color: rgb(22, 166, 233);
+}
+
+.icon:hover .youtube {
+  color: rgb(222, 17, 17);
+}
+
+.icon:hover.facebook {
+  color: rgb(59, 89, 152);
+}
+
+.tooltip {
+  color: rgb(22, 166, 233);
+  position: absolute;
+  top: 0;
+  left: 50%;
+  font-size: 1rem;
+  transform: translate(-50%, -5px);
+  padding: 5px 8px;
+  border-radius: 5px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.tooltip::before {
+  position: absolute;
+  content: "";
+  height: 8px;
+  width: 8px;
+  background: #ffffff;
+  bottom: -3px;
+  left: 50%;
+  transform: translate(-50%) rotate(45deg);
+  transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.icon:hover .tooltip {
+  background: #ffffff;
+  top: -45px;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
