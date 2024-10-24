@@ -13,7 +13,7 @@
 }
 
 .icon:hover {
-  background-color: #264447;
+  background-color: #ffffff;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
   transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
@@ -23,10 +23,10 @@
 }
 
 .icon:hover .youtube {
-  color: rgb(222, 17, 17);
+  color: rgb(255, 0, 0);
 }
 
-.icon:hover.facebook {
+.icon:hover .facebook {
   color: rgb(59, 89, 152);
 }
 

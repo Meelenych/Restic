@@ -1,11 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import styles from '../styles/Navigation.module.css';
 import { useSelector } from 'react-redux';
 
-const Navigation = ({ layout = 'row' }) => {
-	const navClass = layout === 'row' ? styles['nav-row'] : styles['nav-column'];
+const Navigation = () => {
+	const [layout, setLayout] = useState('row');
 	const loggedIn = useSelector(state => state.auth.loggedIn);
+
+	useEffect(() => {
+		if (typeof window !== 'undefined') {
+			const handleResize = () => {
+				setLayout(window.innerWidth < 1024 ? 'column' : 'row');
+			};
+			handleResize();
+			window.addEventListener('resize', handleResize);
+			return () => window.removeEventListener('resize', handleResize);
+		}
+	}, []);
+
+	const navClass = layout === 'row' ? styles['nav-row'] : styles['nav-column'];
 
 	return (
 		<nav className='w-full'>
