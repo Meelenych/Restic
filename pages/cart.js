@@ -25,7 +25,7 @@ const Cart = () => {
 	return (
 		<Layout>
 			<div className='overflow-x-auto p-1 md:p-8 lg:p-16'>
-				{cartItems.length === 0 ? (
+				{cartItems?.length === 0 ? (
 					<p>Your cart is empty.</p>
 				) : (
 					<>
@@ -41,7 +41,7 @@ const Cart = () => {
 								</tr>
 							</thead>
 							<tbody>
-								{cartItems.map(item => (
+								{cartItems?.map(item => (
 									<tr key={item.id}>
 										<td>
 											<div className='flex items-start gap-3 flex-col md:flex-row'>
@@ -78,7 +78,7 @@ const Cart = () => {
 									<th>
 										$
 										{cartItems
-											.reduce((acc, item) => acc + item.price * item.quantity, 0)
+											?.reduce((acc, item) => acc + item.price * item.quantity, 0)
 											.toFixed(2)}
 									</th>
 								</tr>
@@ -112,7 +112,7 @@ const Cart = () => {
 								<p className='py-4'>Please confirm your order details.</p>
 								<div>
 									<tbody>
-										{cartItems.map(item => (
+										{cartItems?.map(item => (
 											<tr key={item.id}>
 												<td>
 													<div className='flex items-center gap-3 flex-col md:flex-row'>
@@ -145,7 +145,7 @@ const Cart = () => {
 									<th>
 										$
 										{cartItems
-											.reduce((acc, item) => acc + item.price * item.quantity, 0)
+											?.reduce((acc, item) => acc + item.price * item.quantity, 0)
 											.toFixed(2)}
 									</th>
 								</div>

@@ -7,45 +7,34 @@ import { useSelector, useDispatch } from 'react-redux';
 import { logOut } from '../redux/auth/authSlice';
 import { jwtDecode } from 'jwt-decode';
 import { setAuthFromLocalStorage } from '../redux/auth/authSlice';
+import { fetchCart } from '../redux/cart/cartSlice';
 
 const Header = () => {
 	const [isScrolled, setIsScrolled] = useState(false);
 	const dispatch = useDispatch();
 	const loggedIn = useSelector(state => state.auth.loggedIn);
-	// const token = useSelector(state => state.auth.token);
+	// const user = useSelector(state => state.auth.user);
 	const cartItems = useSelector(state => state.cart.items);
 	const [username, setUsername] = useState('');
 
-	// useEffect(() => {
-	// 	if (token) {
-	// 		try {
-	// 			const decoded = jwtDecode(token);
-	// 			console.log('decoded', decoded);
-	// 			setUsername(decoded.login || 'User');
-	// 		} catch (error) {
-	// 			console.error('Error decoding token:', error);
-	// 		}
-	// 	}
-	// }, [token]);
-
 	useEffect(() => {
-		// Get token from localStorage after component mounts (client-side)
 		const token = localStorage.getItem('token');
 		if (token) {
 			dispatch(setAuthFromLocalStorage(token));
-		}
-
-		try {
-			const decoded = jwtDecode(token);
-			console.log('decoded', decoded);
-			setUsername(decoded.login || 'User');
-		} catch (error) {
-			console.error('Error decoding token:', error);
+			try {
+				const decoded = jwtDecode(token);
+				dispatch(fetchCart(decoded.id));
+				console.log(cartItems);
+				console.log('decoded', decoded);
+				setUsername(decoded.login || 'User');
+			} catch (error) {
+				console.error('Error decoding token:', error);
+			}
 		}
 	}, [dispatch]);
 
 	const handleLogout = () => {
-		localStorage.removeItem('authToken'); // Clear token from localStorage
+		localStorage.removeItem('authToken');
 		dispatch(logOut());
 	};
 
@@ -137,7 +126,7 @@ const Header = () => {
 										/>
 									</svg>
 									<span className='badge badge-sm indicator-item'>
-										{cartItems.length}
+										{cartItems?.length}
 									</span>
 								</div>
 							</div>
@@ -145,11 +134,11 @@ const Header = () => {
 								tabIndex={0}
 								className='card card-compact dropdown-content bg-base-100 z-[1] mt-3 w-52 shadow'>
 								<div className='card-body'>
-									<span className='text-lg font-bold'>{cartItems.length} Items</span>
+									<span className='text-lg font-bold'>{cartItems?.length} Items</span>
 									<span className='text-info'>
 										Subtotal: $
 										{cartItems
-											.reduce((acc, item) => acc + item.price * item.quantity, 0)
+											?.reduce((acc, item) => acc + item.price * item.quantity, 0)
 											.toFixed(2)}
 									</span>
 									{/* To do: idpage left side - cart right side */}
