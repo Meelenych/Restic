@@ -15,13 +15,13 @@ export default async function handler(req, res) {
 		let { data: cart, error: cartError } = await supabase
 			.from('carts')
 			.select('cart_id')
-			.eq('cart_id', user_id)
+			.eq('user_id', user_id)
 			.single();
 		console.log('Cart data:', cart); // Logs cart data if found
 		if (!cart) {
 			const { data: newCart, error: newCartError } = await supabase
 				.from('carts')
-				.insert({ cart_id: user_id })
+				.insert({ user_id })
 				.select('*')
 				.single();
 			console.log('New cart created:', newCart); // Logs newly created cart
