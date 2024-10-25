@@ -3,18 +3,40 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  color: azure;
-  font-weight: 400;
-  line-height: 1.55;
-}
-
 .script-italics {
   font-family: "Dancing Script", cursive;
   font-optical-sizing: auto;
   font-weight: 700;
   font-style: normal;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* Default (light theme) styles */
+:root {
+  --color-bg: #5dd5a5;
+  --color-text: rgb(102, 34, 237);
+}
+
+/* Dark theme styles */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #333;
+    --color-text: azure;
+  }
+}
+
+/* Apply the colors to your body and other elements */
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+/* Example of using the colors in other elements */
+header,
+footer {
+  background-color: var(--color-bg);
+  color: var(--color-text);
 }

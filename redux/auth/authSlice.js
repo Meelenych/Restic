@@ -27,7 +27,7 @@ const authSlice = createSlice({
 			if (token && typeof token === 'string' && !isTokenExpired(token)) {
 				state.loggedIn = true;
 				state.token = token;
-				state.user = jwtDecode(token); // Safe to decode now
+				state.user = jwtDecode(token);
 			} else {
 				state.loggedIn = false;
 				state.token = null;
@@ -40,7 +40,7 @@ const authSlice = createSlice({
 				state.loggedIn = true;
 				state.token = token;
 				try {
-					state.user = jwtDecode(token); // Safe to decode
+					state.user = jwtDecode(token);
 				} catch (error) {
 					console.error('Error decoding token:', error);
 					state.user = null;

@@ -18,7 +18,30 @@ const cartSlice = createSlice({
 	name: 'cart',
 	initialState, // Use the initial state here
 	reducers: {
-		// Define any synchronous reducers here if needed
+		addItem: (state, action) => {
+			// Check if item already exists in the cart
+			const existingItem = state.items.find(item => item.id === action.payload.id);
+			if (existingItem) {
+				// If the item already exists, update its quantity
+				existingItem.quantity += action.payload.quantity;
+			} else {
+				// If the item doesn't exist, add it to the cart
+				state.items.push(action.payload);
+			}
+		},
+		removeItem: (state, action) => {
+			// Filter out the item to be removed by its ID
+			state.items = state.items.filter(item => item.id !== action.payload);
+		},
+		updateQuantity: (state, action) => {
+			const item = state.items.find(item => item.id === action.payload.id);
+			if (item) {
+				item.quantity = action.payload.quantity;
+			}
+		},
+		clearCart: state => {
+			state.items = []; // Clear all items from the cart
+		},
 	},
 	extraReducers: builder => {
 		builder
@@ -35,5 +58,8 @@ const cartSlice = createSlice({
 			});
 	},
 });
+
+export const { addItem, removeItem, updateQuantity, clearCart } =
+	cartSlice.actions;
 
 export default cartSlice.reducer;

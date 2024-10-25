@@ -36,13 +36,13 @@ const Footer = () => {
 						</div>
 					</Link>
 				</nav>
-				<div className='flex justify-center w-20'>
+				<div className='flex justify-center w-10'>
 					<div className='w-[1px] h-72 md:h-32 bg-white'></div>
 				</div>
 				<div className='w-min lg:w-full flex items-center'>
 					<Navigation />
 				</div>
-				<div className='flex justify-center w-20'>
+				<div className='flex justify-center w-10'>
 					<div className='w-[1px] h-72 md:h-32 bg-white'></div>
 				</div>
 				<nav className=''>
