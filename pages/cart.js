@@ -110,7 +110,7 @@ const Cart = () => {
 							<div className='modal-box'>
 								<h3 className='font-bold text-lg'>Confirm your order?</h3>
 								<p className='py-4'>Please confirm your order details.</p>
-								<div>
+								<table className='table table-zebra-zebra table-xs'>
 									<tbody>
 										{cartItems?.map(item => (
 											<tr key={item.id}>
@@ -128,18 +128,20 @@ const Cart = () => {
 															</div>
 														</div>
 														<div>
-															<div className='font-bold'>{item.title}</div>
+															<div className='font-bold line-clamp-1'>{item.title}</div>
 															<div className='text-sm opacity-50'>{item.category}</div>
 														</div>
 													</div>
 												</td>
-												<td className='line-clamp-1 hidden md:block'>{item.description}</td>
-												<td>{item.quantity}</td>
-												<td>${item.price.toFixed(2)}</td>
-												<td>${(item.price * item.quantity).toFixed(2)}</td>
+												<td className='text-right px-5'>{item.quantity}</td>
+												<td className='text-right px-5'>${item.price.toFixed(2)}</td>
+												<td className='text-right px-5'>
+													${(item.price * item.quantity).toFixed(2)}
+												</td>
 											</tr>
 										))}
 									</tbody>
+									<th></th>
 									<th></th>
 									<th>Total</th>
 									<th>
@@ -148,7 +150,7 @@ const Cart = () => {
 											?.reduce((acc, item) => acc + item.price * item.quantity, 0)
 											.toFixed(2)}
 									</th>
-								</div>
+								</table>
 								<div className='modal-action'>
 									<button
 										type='submit'

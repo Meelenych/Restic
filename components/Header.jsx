@@ -24,8 +24,7 @@ const Header = () => {
 			try {
 				const decoded = jwtDecode(token);
 				dispatch(fetchCart(decoded.id));
-				console.log(cartItems);
-				console.log('decoded', decoded);
+				// console.log('decoded', decoded);
 				setUsername(decoded.login || 'User');
 			} catch (error) {
 				console.error('Error decoding token:', error);
@@ -152,6 +151,7 @@ const Header = () => {
 								</div>
 							</div>
 						</div>
+						{/* User login interface */}
 						<div className='dropdown dropdown-end'>
 							<div
 								tabIndex={0}
@@ -177,9 +177,8 @@ const Header = () => {
 										<Link
 											className='hover:underline'
 											href='/login'>
-											{username ? username : 'Unknown'}
+											{username ? username : 'Unknown'}!
 										</Link>
-										!
 									</p>
 								</li>
 								<li>

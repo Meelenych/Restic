@@ -4,7 +4,7 @@ import axios from 'axios';
 // Thunk for fetching cart data
 export const fetchCart = createAsyncThunk('cart/fetchCart', async userId => {
 	const response = await axios.get(`/api/cart/get?user_id=${userId}`);
-	return response.data.cartItems;
+	return response.data.fullCartItems;
 });
 
 // Define the initial state of the cart
