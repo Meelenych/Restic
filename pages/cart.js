@@ -12,7 +12,10 @@ const Cart = () => {
 	console.log('cartItems', cartItems);
 	const dispatch = useDispatch();
 
-	const emptyCart = () => dispatch(clearCart());
+	const emptyCart = () => {
+		document.getElementById('empty_cart_modal').showModal();
+		// dispatch(clearCart());
+	};
 
 	const showModal = () => {
 		document.getElementById('booking_modal').showModal();
@@ -103,7 +106,7 @@ const Cart = () => {
 								Cancel
 							</Link>
 						</div>
-						{/* Modal */}
+						{/* Modal - confirm order */}
 						<dialog
 							id='booking_modal'
 							className='modal'>
@@ -161,6 +164,34 @@ const Cart = () => {
 									<button
 										type='button'
 										onClick={() => closeModal()}
+										className='hover:animate-pulse-glow-red bg-red-500 text-white text-center py-2 px-4 rounded-xl w-full md:w-96 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition ease-in duration-300'>
+										Cancel
+									</button>
+								</div>
+							</div>
+						</dialog>
+						{/* Modal - confirm empty cart */}
+						<dialog
+							id='empty_cart_modal'
+							className='modal'>
+							<div className='modal-box'>
+								<form method='dialog'></form>
+								<h3 className='font-bold text-lg'>Are you sure?</h3>
+								<p className='py-4'>
+									Press <strong>Confirm</strong> to empty cart or <strong>Cancel</strong>{' '}
+									to exit.
+								</p>
+								<div className='modal-action'>
+									<button
+										type='submit'
+										form='booking-form'
+										onClick={() => dispatch(clearCart())}
+										className='hover:animate-pulse-glow-indigo bg-indigo-500 text-white py-2 px-4 rounded-xl w-full md:w-96 mr-4 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition ease-in duration-300'>
+										Confirm
+									</button>
+									<button
+										type='button'
+										onClick={() => document.getElementById('empty_cart_modal').close()}
 										className='hover:animate-pulse-glow-red bg-red-500 text-white text-center py-2 px-4 rounded-xl w-full md:w-96 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition ease-in duration-300'>
 										Cancel
 									</button>

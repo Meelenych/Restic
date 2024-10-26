@@ -95,9 +95,7 @@ const Footer = () => {
 					</ul>
 				</nav>
 			</div>
-			<p className='text-center mt-4'>
-				&copy; 2024 <span className='text-lg'>Elzar&apos;s</span>
-			</p>
+			<p className='text-center mt-4'>&copy; 2024 Elzar&apos;s</p>
 		</footer>
 	);
 };
