@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import { addItem } from '../redux/cart/cartSlice';
 import toast from 'react-hot-toast';
 import { jwtDecode } from 'jwt-decode';
+import { useSelector, useDispatch } from 'react-redux';
 
 const Menu = () => {
 	const [dishes, setDishes] = useState([]);
