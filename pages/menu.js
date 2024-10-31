@@ -91,7 +91,7 @@ const Menu = () => {
 									<div className='card-body p-3'>
 										<h2 className='card-title line-clamp-1'>{dish.title}</h2>
 										<p className='line-clamp-2'>{dish.description}</p>
-										<div className='w-full flex justify-between flex-col md:flex-row'>
+										<div className='w-full grid grid-cols-1 md:grid-cols-2'>
 											<Link
 												href={`/menu/${dish.id}`}
 												className='hover:text-amber-500 py-2 w-full md:w-96 md:mr-4 mb-4 md:mb-0 focus:outline-none hover:underline transition ease-in duration-300'>
@@ -104,12 +104,12 @@ const Menu = () => {
 													Order now!
 												</button>
 											) : (
-												<div className='hover:animate-pulse-glow-indigo overflow_div btn border-none rounded-xl hover:bg-indigo-500 bg-indigo-500 text-white w-full md:w-96 transition ease-in duration-300'>
+												<div className='hover:animate-pulse-glow-indigo overflow_div btn border-none rounded-xl hover:bg-indigo-500 bg-indigo-500 text-white w-full transition ease-in duration-300'>
 													Order now
 													<div className='overlay_div'>
 														<Link
 															href='/login'
-															className='btn border-none rounded-xl bg-indigo-500 w-full hover:bg-indigo-500 text-white '>
+															className='btn border-none rounded-xl bg-indigo-500 hover:bg-indigo-500 text-white '>
 															Log in first
 														</Link>
 													</div>
