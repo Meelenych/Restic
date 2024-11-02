@@ -57,6 +57,7 @@ const Header = () => {
 		<header className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}>
 			<div className='navbar'>
 				<div className='flex-1'>
+					{/* Mobile menu */}
 					<div className='navbar-start sm:block md:hidden'>
 						<div className='drawer'>
 							<input
@@ -99,10 +100,12 @@ const Header = () => {
 							</div>
 						</div>
 					</div>
+					{/* Main header */}
 					<div className='hidden md:block w-full'>
 						<Navigation layout='row' />
 					</div>
 				</div>
+				{/* Logged in menu */}
 				{loggedIn && (
 					<div className='flex-none'>
 						<div className='dropdown dropdown-end'>
@@ -129,6 +132,7 @@ const Header = () => {
 									</span>
 								</div>
 							</div>
+							{/* Cart */}
 							<div
 								tabIndex={0}
 								className='card card-compact dropdown-content bg-base-100 z-[1] mt-3 w-52 shadow'>

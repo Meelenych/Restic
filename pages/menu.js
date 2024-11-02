@@ -109,7 +109,7 @@ const Menu = () => {
 													<div className='overlay_div'>
 														<Link
 															href='/login'
-															className='btn border-none rounded-xl bg-indigo-500 hover:bg-indigo-500 text-white '>
+															className='btn border-none rounded-xl w-full bg-indigo-500 hover:bg-indigo-500 text-white '>
 															Log in first
 														</Link>
 													</div>

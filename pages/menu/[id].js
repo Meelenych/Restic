@@ -87,20 +87,20 @@ const MenuItem = () => {
 						<p className='mt-2 font-bold'>Price: ${dish.price}</p>
 						<p className='mt-2'>Category: {dish.category}</p>
 						{/* Order / Log in button */}
-						<div className='card-actions justify-end'>
+						<div className='card-actions justify-start'>
 							{loggedIn ? (
 								<button
 									onClick={() => handleAddToCart(dish)}
-									className='hover:animate-pulse-glow-indigo bg-indigo-500 text-white py-2 px-4 rounded-xl w-full md:w-96 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-300 transition ease-in duration-300'>
+									className='hover:animate-pulse-glow-indigo bg-indigo-500 text-white py-2 px-4 rounded-xl w-full hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-300 transition ease-in duration-300'>
 									Order now!
 								</button>
 							) : (
-								<div className='hover:animate-pulse-glow-indigo overflow_div btn border-none rounded-xl hover:bg-indigo-500 bg-indigo-500 text-white w-full md:w-96 transition ease-in duration-300'>
+								<div className='hover:animate-pulse-glow-indigo overflow_div btn border-none rounded-xl hover:bg-indigo-500 bg-indigo-500 text-white w-full md:w-72 transition ease-in duration-300'>
 									Order now
 									<div className='overlay_div'>
 										<Link
 											href='/login'
-											className='btn border-none rounded-xl bg-indigo-500 w-full hover:bg-indigo-500 text-white '>
+											className='btn border-none rounded-xl w-full bg-indigo-500 hover:bg-indigo-500 text-white '>
 											Log in first
 										</Link>
 									</div>
