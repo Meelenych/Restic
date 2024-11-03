@@ -13,7 +13,6 @@ const Header = () => {
 	const [isScrolled, setIsScrolled] = useState(false);
 	const dispatch = useDispatch();
 	const loggedIn = useSelector(state => state.auth.loggedIn);
-	// const user = useSelector(state => state.auth.user);
 	const cartItems = useSelector(state => state.cart.items);
 	const [username, setUsername] = useState('');
 
@@ -58,7 +57,7 @@ const Header = () => {
 			<div className='navbar'>
 				<div className='flex-1'>
 					{/* Mobile menu */}
-					<div className='navbar-start sm:block md:hidden'>
+					<div className='navbar-start sm:block lg:hidden'>
 						<div className='drawer'>
 							<input
 								id='my-drawer'
@@ -101,7 +100,7 @@ const Header = () => {
 						</div>
 					</div>
 					{/* Main header */}
-					<div className='hidden md:block w-full'>
+					<div className='hidden lg:block w-full'>
 						<Navigation layout='row' />
 					</div>
 				</div>
