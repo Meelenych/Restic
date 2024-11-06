@@ -13,7 +13,7 @@ const GoogleMap = () => {
 				height='400'
 				style={{ border: 0 }}
 				allowFullScreen=''
-				loading='lazy'></iframe>
+				loading='eager'></iframe>
 		</div>
 	);
 };
