@@ -94,7 +94,7 @@ const Menu = () => {
 										<div className='w-full grid grid-cols-1 md:grid-cols-2'>
 											<Link
 												href={`/menu/${dish.id}`}
-												className='hover:text-amber-500 py-2 w-full md:w-96 md:mr-4 mb-4 md:mb-0 focus:outline-none hover:underline transition ease-in duration-300'>
+												className='hover:text-amber-500 py-2 w-full md:mr-4 mb-4 md:mb-0 focus:outline-none hover:underline transition ease-in duration-300'>
 												Learn more...
 											</Link>
 											{loggedIn ? (

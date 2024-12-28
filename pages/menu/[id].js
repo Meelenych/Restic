@@ -78,7 +78,7 @@ const MenuItem = () => {
 						width={400}
 						height={400}
 						unoptimized
-						className='w-full max-h-[600px] object-cover'
+						className='w-full h-auto max-h-[600px] object-cover'
 					/>
 					{/* Menu item text info */}
 					<div className='card-body lg:col-span-2 col-span-1'>
